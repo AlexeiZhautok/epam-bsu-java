@@ -2,6 +2,7 @@ package com.company.model;
 
 import java.lang.String;
 import java.util.Objects;
+import javax.xml.crypto.Data;
 
 public class User {
     private long id;
@@ -9,6 +10,7 @@ public class User {
     private String password;
     private String email;
     private UserRole role;
+    private Description description;
 
     public User(long id, String login, String password, String email, UserRole role) {
         this.id = id;
@@ -53,12 +55,19 @@ public class User {
         this.id = id;
     }
 
+    public Description getDescription() {
+        return description;
+    }
+    public void setDescription(Data birthday, String name, String surname, String description, String[] interesting) {
+        this.description = new Description(birthday, name, surname,description,  interesting);
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        if (this == o) return true;;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return Objects.equals(login, user.login) &&
+        return  Objects.equals(login, user.login) &&
                 Objects.equals(password, user.password) &&
                 Objects.equals(email, user.email);
     }
