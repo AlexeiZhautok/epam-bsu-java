@@ -1,0 +1,43 @@
+package com.company.DAO;
+
+import com.company.model.Admin;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+public class AdminDao {
+    public void createAdmin(Admin admin) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Database/Admins/AdminDatabase.txt", true))) {
+            writer.write(admin.toStringFileFormat());
+            writer.newLine();
+        } catch (IOException ignored) {
+        }
+    }
+
+    public ArrayList<Admin> readAll() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("Database/Admins/AdminDatabase.txt"))) {
+            ArrayList<Admin> admins = new ArrayList<>();
+            String tempLine = "";
+            while ((tempLine = reader.readLine()) != null) {
+                StringTokenizer st = new StringTokenizer(tempLine, "-");
+                long id = Long.parseLong(st.nextToken());
+                String login = st.nextToken();
+                String password = st.nextToken();
+                String email = st.nextToken();
+                admins.add(new Admin(id, login, password, email));
+            }
+            return admins;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void deleteAll() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Database/Admins/AdminDatabase.txt"))) {
+            writer.write("");
+        } catch (IOException ignored) {
+        }
+    }
+}
