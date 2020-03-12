@@ -66,4 +66,55 @@ public class StudentDao {
             e.printStackTrace();
         }
     }
+
+    public Student GetById(long inputId) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("Database/Students/StudentDatabase.txt"))) {
+            String tempLine = "";
+            while ((tempLine = reader.readLine()) != null) {
+                StringTokenizer st = new StringTokenizer(tempLine, "-");
+                long id = Long.parseLong(st.nextToken());
+                String login = st.nextToken();
+                String password = st.nextToken();
+                String email = st.nextToken();
+                if (id == inputId) {
+                    return new Student(id, login, password, email);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+        //throw new ...Exception();
+    }
+
+    public void UpdateById (long inputId, Student newStudent) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("Database/Students/StudentDatabase.txt"))) {
+            ArrayList<Student> students = new ArrayList<>();
+            String tempLine = "";
+            while ((tempLine = reader.readLine()) != null) {
+                StringTokenizer st = new StringTokenizer(tempLine, "-");
+                long id = Long.parseLong(st.nextToken());
+                String login = st.nextToken();
+                String password = st.nextToken();
+                String email = st.nextToken();
+                if((id == inputId)) {
+                    students.add(new Student(newStudent.getId(), newStudent.getLogin(), newStudent.getPassword(), newStudent.getEmail()));
+                } else {
+                    students.add(new Student(id, login, password, email));
+                }
+            }
+            BufferedWriter writer = new BufferedWriter(new FileWriter("Database/Students/StudentDatabase.txt"));
+            //Teacher teacher;
+            for (Student studentIter : students) {
+                // teacher = teacherIter;
+                if (studentIter.getId() != inputId) {
+                    createStudent(studentIter);
+                }
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

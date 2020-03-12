@@ -75,6 +75,6 @@ public class User {
 
     public String toStringFileFormat() {
         String filler = "-";
-        return id + filler + login + filler + password + filler + email + "\n";
+        return id + filler + login + filler + password + filler + email;
     }
 }
