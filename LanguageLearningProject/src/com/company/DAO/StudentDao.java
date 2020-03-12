@@ -1,6 +1,7 @@
 package com.company.DAO;
 
 import com.company.model.Student;
+import com.company.model.Teacher;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -38,6 +39,31 @@ public class StudentDao {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("Database/Students/StudentDatabase.txt"))) {
             writer.write("");
         } catch (IOException ignored) {
+        }
+    }
+
+    public void deleteById(long inputId) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("Database/Students/StudentDatabase.txt"))) {
+            ArrayList<Student> students = new ArrayList<>();
+            String tempLine = "";
+            while ((tempLine = reader.readLine()) != null) {
+                StringTokenizer st = new StringTokenizer(tempLine, "-");
+                long id = Long.parseLong(st.nextToken());
+                String login = st.nextToken();
+                String password = st.nextToken();
+                String email = st.nextToken();
+                students.add(new Student(id, login, password, email));
+            }
+            BufferedWriter writer = new BufferedWriter(new FileWriter("Database/Students/StudentDatabase.txt"));
+            for (Student studentIter : students) {
+                if (studentIter.getId() != inputId) {
+                    createStudent(studentIter);
+                }
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

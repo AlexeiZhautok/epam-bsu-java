@@ -1,6 +1,7 @@
 package com.company.DAO;
 
 import com.company.model.Admin;
+import com.company.model.Student;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -32,12 +33,37 @@ public class AdminDao {
             e.printStackTrace();
         }
         return null;
-    }
+}
 
     public void deleteAll() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("Database/Admins/AdminDatabase.txt"))) {
             writer.write("");
         } catch (IOException ignored) {
+        }
+    }
+
+    public void deleteById(long inputId) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("Database/Admins/AdminDatabase.txt"))) {
+            ArrayList<Admin> admins = new ArrayList<>();
+            String tempLine = "";
+            while ((tempLine = reader.readLine()) != null) {
+                StringTokenizer st = new StringTokenizer(tempLine, "-");
+                long id = Long.parseLong(st.nextToken());
+                String login = st.nextToken();
+                String password = st.nextToken();
+                String email = st.nextToken();
+                admins.add(new Admin(id, login, password, email));
+            }
+            BufferedWriter writer = new BufferedWriter(new FileWriter("Database/Admins/AdminDatabase.txt"));
+            for (Admin adminIter : admins) {
+                if (adminIter.getId() != inputId) {
+                    createAdmin(adminIter);
+                }
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

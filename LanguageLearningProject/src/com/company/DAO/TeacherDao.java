@@ -40,4 +40,31 @@ public class TeacherDao {
         } catch (IOException ignored) {
         }
     }
+
+    public void deleteById(long inputId) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("Database/Teachers/TeacherDatabase.txt"))) {
+            ArrayList<Teacher> teachers = new ArrayList<>();
+            String tempLine = "";
+            while ((tempLine = reader.readLine()) != null) {
+                StringTokenizer st = new StringTokenizer(tempLine, "-");
+                long id = Long.parseLong(st.nextToken());
+                String login = st.nextToken();
+                String password = st.nextToken();
+                String email = st.nextToken();
+                teachers.add(new Teacher(id, login, password, email));
+            }
+            BufferedWriter writer = new BufferedWriter(new FileWriter("Database/Teachers/TeacherDatabase.txt"));
+            //Teacher teacher;
+            for (Teacher teacherIter : teachers) {
+               // teacher = teacherIter;
+                if (teacherIter.getId() != inputId) {
+                    createTeacher(teacherIter);
+                }
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
