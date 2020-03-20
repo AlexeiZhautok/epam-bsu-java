@@ -11,12 +11,16 @@ public class StudentService {
     Logger log = LogManager.getLogger();
     private StudentDao studentDao = new StudentDao();
 
-    public void DeleteAll()
-    {
+    public void DeleteAll() {
         studentDao.deleteAll();
+        log.info("Deleted all students");
     }
 
     public ArrayList<Student> ReadAll(){
-        return studentDao.readAll();
+        var temp = studentDao.readAll();
+        int size = temp.size();
+        log.info("returned" + size + " students");
+        return temp;
+
     }
 }
