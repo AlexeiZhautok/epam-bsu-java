@@ -20,5 +20,4 @@ public class BookCollection {
         return collection;
     }
 
-
 }

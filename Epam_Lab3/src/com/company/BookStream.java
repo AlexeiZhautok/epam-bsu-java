@@ -1,7 +1,10 @@
 package com.company;
 
+import org.apache.logging.log4j.core.util.JsonUtils;
+
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -33,8 +36,16 @@ public class BookStream {
         return result;
     }
 
+//    public int FindMaxPages() {
+//        int result = stream.max(Comparator.comparing(Book::getPages)).orElseThrow(NoSuchElementException::new).pages;
+//        UpdateStream();
+//        return result;
+//    }
+
     public int FindMaxPages() {
-        int result = stream.max(Comparator.comparing(Book::getPages)).get().pages;
+//        ArrayList<Book> test = new ArrayList<>();
+//        stream = test.stream();
+        int result = stream.max(Comparator.comparing(Book::getPages)).orElse(new Book("", -1, new String[]{})).pages;
         UpdateStream();
         return result;
     }
@@ -46,13 +57,13 @@ public class BookStream {
     }
 
     public ArrayList<Book> SortBooksByPageCount() {
-        ArrayList<Book> result = new ArrayList<Book>(stream.sorted(Comparator.comparing(Book::getPages)).collect(toList()));
+        ArrayList<Book> result = new ArrayList<Book>(stream.peek(obj -> System.out.println("Unsorted: " + obj)).sorted(Comparator.comparing(Book::getPages)).collect(toList()));
         UpdateStream();
         return result;
     }
 
     public ArrayList<Book> SortBooksByName() {
-        ArrayList<Book> result = new ArrayList<>(stream.sorted(Comparator.comparing(Book::getName)).collect(toList()));
+        ArrayList<Book> result = new ArrayList<>(stream.peek(obj -> System.out.println("Unsorted: " + obj)).sorted(Comparator.comparing(Book::getName)).collect(toList()));
         UpdateStream();
         return result;
     }
@@ -64,7 +75,7 @@ public class BookStream {
     }
 
     public ArrayList<String> GetAuthorsNoDuplicates() {
-        ArrayList<String> result = new ArrayList<>(stream.flatMap(e->e.getAuthors().stream()).distinct().collect(Collectors.toList()));
+        ArrayList<String> result = new ArrayList<>(stream.flatMap(e->e.getAuthors().stream()).peek(obj -> System.out.println("May be a duplicate: " + obj)).distinct().collect(Collectors.toList()));
         UpdateStream();
         return result;
     }
