@@ -1,0 +1,26 @@
+2020-04-03 18:29:16 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-03 18:30:15 [main] FATAL com.company.dao.UserDao - java.util.NoSuchElementException
+2020-04-03 18:30:15 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-03 18:33:01 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-03 18:33:16 [main] FATAL com.company.dao.UserDao - java.util.NoSuchElementException
+2020-04-03 18:33:16 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-03 18:34:15 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-03 18:35:02 [main] FATAL com.company.dao.UserDao - java.util.NoSuchElementException
+2020-04-03 18:35:02 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-03 18:36:00 [main] FATAL com.company.dao.UserDao - java.util.NoSuchElementException
+2020-04-03 18:36:01 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-03 18:36:11 [main] FATAL com.company.dao.UserDao - java.util.NoSuchElementException
+2020-04-03 18:36:11 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-03 18:36:19 [main] FATAL com.company.dao.UserDao - java.util.NoSuchElementException
+2020-04-03 18:36:19 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-03 18:36:46 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-03 18:37:03 [main] WARN  com.company.dao.UserDao - Пользователь с введённым ID уже существует
+2020-04-03 18:37:52 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-03 18:38:17 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
+2020-04-03 18:39:00 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
+2020-04-03 18:42:24 [main] WARN  com.company.dao.UserDao - Пользователь с введённым ID уже существует
+2020-04-03 18:42:35 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
+2020-04-03 18:42:51 [main] INFO  com.company.dao.UserDao - Пользователя с введённым ID не существует
+2020-04-03 18:43:01 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
+2020-04-03 18:44:14 [main] WARN  com.company.dao.UserDao - Пользователь с указанным новым ID уже существует
+2020-04-03 18:46:27 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
