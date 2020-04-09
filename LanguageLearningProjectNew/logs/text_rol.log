@@ -34,3 +34,13 @@
 2020-04-09 17:55:12 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
 2020-04-09 17:55:17 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
 2020-04-09 17:56:05 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
+2020-04-09 18:09:16 [main] WARN  com.company.dao.UserDao - Введена неправильная роль
+2020-04-09 18:09:32 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-09 18:10:33 [main] WARN  com.company.dao.UserDao - Введена неправильная роль
+2020-04-09 18:10:56 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-09 18:15:32 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-09 18:17:32 [main] WARN  com.company.dao.UserDao - Введены некорректные данные
+2020-04-09 18:20:17 [main] WARN  com.company.dao.UserDao - Введены некорректные данные
+2020-04-09 18:20:29 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-09 18:28:35 [main] WARN  com.company.dao.UserDao - Введены некорректные данные
+2020-04-09 18:28:51 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан

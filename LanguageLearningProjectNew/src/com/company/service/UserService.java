@@ -2,6 +2,7 @@ package com.company.service;
 
 import com.company.dao.UserDao;
 import com.company.exceptions.IncorrectIdException;
+import com.company.exceptions.IncorrectRoleException;
 import com.company.model.User;
 import com.company.model.UserRole;
 import org.apache.logging.log4j.LogManager;
@@ -13,6 +14,20 @@ import java.util.List;
 public class UserService {
     private UserDao userDao = new UserDao();
     Logger log = UserDao.log;
+
+    private UserRole checkRoleCorrectness(String inputRole) {
+        UserRole role;
+        try {
+            role = UserRole.valueOf(inputRole);
+        } catch (Exception e) {
+            throw new IncorrectRoleException();
+        }
+        return role;
+    }
+
+    private boolean checkFieldsEmptiness(String login, String password, String email) {
+        return (!login.isEmpty() && !password.isEmpty() && !email.isEmpty());
+    }
 
     private long checkIDCorrectness(String inputID) {
         long ID = 0;
@@ -46,8 +61,15 @@ public class UserService {
         return userDao.getById(ID);
     }
 
-    public void createUser(String login, String password, String email, UserRole role) {
-        if (login != null && password != null && email != null) {
+    public void createUser(String login, String password, String email, String inputRole) {
+        UserRole role;
+        try {
+            role = checkRoleCorrectness(inputRole);
+        } catch (IncorrectRoleException e) {
+            log.warn("Введена неправильная роль");
+            return;
+        }
+        if (checkFieldsEmptiness(login, password, email)) {
             userDao.createUser(login, password, email, role);
             log.info("Пользователь успешно создан");
         } else {
@@ -56,8 +78,15 @@ public class UserService {
         }
     }
 
-    public void updateByID(String inputID, String newLogin, String newPassword, String newEmail, UserRole newRole) {
+    public void updateByID(String inputID, String newLogin, String newPassword, String newEmail, String inputNewRole) {
         long ID = 0;
+        UserRole newRole;
+        try {
+            newRole = checkRoleCorrectness(inputNewRole);
+        } catch (IncorrectRoleException e) {
+            log.warn("Введена неправильная роль");
+            return;
+        }
         try {
             ID = checkIDCorrectness(inputID);
         } catch (IncorrectIdException e) {
@@ -65,7 +94,7 @@ public class UserService {
             return;
         }
         if(getByID(inputID) != null) {
-            if (newLogin != null && newPassword != null && newEmail != null) {
+            if (checkFieldsEmptiness(newLogin, newPassword, newEmail)) {
                 userDao.updateById(ID, new User(ID, newLogin, newPassword, newEmail, newRole));
                 log.info("Пользователь успешно обновлён");
             } else {
