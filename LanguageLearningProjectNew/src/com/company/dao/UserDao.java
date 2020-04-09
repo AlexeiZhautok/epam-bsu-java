@@ -9,6 +9,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class UserDao {
     public static String delim = "-";
@@ -24,6 +25,19 @@ public class UserDao {
         String email = st.nextToken();
         UserRole role = UserRole.valueOf(st.nextToken());
         return new User(id, login, password, email, role);
+    }
+
+    public long getLastID() {
+        long toReturn = 0;
+        try (BufferedReader reader = new BufferedReader(new FileReader(DB_Destination))) {
+            String tempLine = "";
+            while ((tempLine = reader.readLine()) != null) {
+                toReturn = parseUser(tempLine).getId();
+            }
+        } catch (IOException e) {
+            log.fatal(e);
+        }
+        return toReturn;
     }
 
     public List<User> getAll() {
@@ -55,9 +69,10 @@ public class UserDao {
         return null;
     }
 
-    public void createUser(User user) {
+    public void createUser(String login, String password, String email, UserRole role) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination, true))) {
-            writer.write(user.toStringFileFormat());
+            User newUser = new User(getLastID() + 1, login, password, email, role);
+            writer.write(newUser.toStringFileFormat());
             writer.newLine();
         } catch (IOException ignored) {
         }
@@ -75,7 +90,7 @@ public class UserDao {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination))) {
             for (User userIter : users) {
                 if (userIter.getId() != inputId) {
-                    createUser(userIter);
+                    createUser(userIter.getLogin(), userIter.getPassword(), userIter.getEmail(), userIter.getRole());
                 }
             }
         } catch (IOException e) {
@@ -83,7 +98,7 @@ public class UserDao {
         }
     }
 
-    public void UpdateById (long inputId, User newUser) {
+    public void updateById (long inputId, User newUser) {
         List<User> users = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(DB_Destination))) {
             String tempLine = "";
@@ -96,11 +111,11 @@ public class UserDao {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            log.fatal(e);
         }
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination))) {
             for (User userIter : users) {
-                createUser(userIter);
+                createUser(userIter.getLogin(), userIter.getPassword(), userIter.getEmail(), userIter.getRole());
             }
         } catch (IOException e) {
             log.fatal(e);

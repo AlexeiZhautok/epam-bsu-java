@@ -4,6 +4,7 @@ import com.company.view.ConsoleInterface;
 
 public class Main {
     public static void main(String[] args) {
+
         UserService test = new UserService();
 //        test.createUser(1, "Nachalas", "228", "nachalasalive@list.ru", UserRole.ADMIN);
 //        for(var i : test.getAll()) {

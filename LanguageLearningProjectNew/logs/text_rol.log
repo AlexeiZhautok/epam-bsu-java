@@ -24,3 +24,9 @@
 2020-04-03 18:43:01 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
 2020-04-03 18:44:14 [main] WARN  com.company.dao.UserDao - Пользователь с указанным новым ID уже существует
 2020-04-03 18:46:27 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
+2020-04-03 19:07:02 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-03 19:09:10 [main] WARN  com.company.dao.UserDao - Пользователя с введённым ID не существует
+2020-04-09 17:24:08 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-09 17:34:33 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-09 17:35:07 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-09 17:36:52 [main] WARN  com.company.dao.UserDao - Введён неправильный ID

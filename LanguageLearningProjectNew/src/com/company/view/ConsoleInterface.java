@@ -12,19 +12,18 @@ import java.util.Scanner;
 public class ConsoleInterface {
     UserService userService = new UserService();
     Scanner scanner = new Scanner(System.in);
+    boolean userFlag;
 
     public void showInterface() {
         while(true) {
             System.out.println("Choose what objects to work with:");
             System.out.println("1. Users");
             System.out.println("0. Exit");
-            int option = scanner.nextInt();
-            if(option == 0) {
-                break;
-            }
+            String option = scanner.nextLine();
             switch (option) {
-                case 1:
-                    while(true) {
+                case "1":
+                    userFlag = true;
+                    while(userFlag) {
                         System.out.println("User options: ");
                         System.out.println("1. Get all users");
                         System.out.println("2. Delete all users");
@@ -33,25 +32,19 @@ public class ConsoleInterface {
                         System.out.println("5. Update user by ID");
                         System.out.println("6. Delete user by ID");
                         System.out.println("0. Exit");
-                        option = scanner.nextInt();
-                        if(option == 0) {
-                            break;
-                        }
+                        option = scanner.nextLine();
                         switch (option) {
-                            case 1:
+                            case "1":
                                 List<User> users = userService.getAll();
                                 for(User iter : users) {
                                     System.out.println(iter.toString());
                                 }
                                 break;
-                            case 2:
+                            case "2":
                                 userService.deleteAll();
                                 break;
-                            case 3:
+                            case "3":
                                 System.out.println("Enter new user's information");
-                                System.out.println("ID: ");
-                                long id = scanner.nextLong();
-                                scanner.nextLine();
                                 System.out.println("Login: ");
                                 String login = scanner.nextLine();
                                 System.out.println("Password: ");
@@ -60,11 +53,11 @@ public class ConsoleInterface {
                                 String email = scanner.nextLine();
                                 System.out.println("Role: ");
                                 UserRole role = UserRole.valueOf(scanner.nextLine());
-                                userService.createUser(id, login, password, email, role);
+                                userService.createUser(login, password, email, role);
                                 break;
-                            case 4:
+                            case "4":
                                 System.out.println("Enter ID: ");
-                                id = scanner.nextLong();
+                                long id = scanner.nextLong();
                                 User tempUser = userService.getByID(id);
                                 if(tempUser != null) {
                                     System.out.println(tempUser.toString());
@@ -72,13 +65,10 @@ public class ConsoleInterface {
                                     System.out.println("User not found");
                                 }
                                 break;
-                            case 5:
+                            case "5":
                                 System.out.println("Enter needed user's ID: ");
                                 long idToUpdate = scanner.nextLong();
                                 System.out.println("Enter new user information");
-                                System.out.println("ID: ");
-                                id = scanner.nextLong();
-                                scanner.nextLine();
                                 System.out.println("Login: ");
                                 login = scanner.nextLine();
                                 System.out.println("Password: ");
@@ -87,15 +77,19 @@ public class ConsoleInterface {
                                 email = scanner.nextLine();
                                 System.out.println("Role: ");
                                 role = UserRole.valueOf(scanner.nextLine());
-                                userService.updateByID(idToUpdate, id, login, password, email, role);
+                                userService.updateByID(idToUpdate, login, password, email, role);
                                 break;
-                            case 6:
+                            case "6":
                                 System.out.println("Enter needed user's ID: ");
                                 id = scanner.nextLong();
                                 userService.deleteByID(id);
                                 break;
+                            default:
+                                userFlag = false;
+                                break;
                         }
                     }
+                default:
                     break;
             }
         }
