@@ -30,3 +30,7 @@
 2020-04-09 17:34:33 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
 2020-04-09 17:35:07 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
 2020-04-09 17:36:52 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
+2020-04-09 17:55:06 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
+2020-04-09 17:55:12 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
+2020-04-09 17:55:17 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
+2020-04-09 17:56:05 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён

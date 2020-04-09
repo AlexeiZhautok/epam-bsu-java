@@ -14,10 +14,17 @@ public class UserService {
     private UserDao userDao = new UserDao();
     Logger log = UserDao.log;
 
-    private void checkIDCorrectness(long inputID) {
-        if(inputID <= 0) {
+    private long checkIDCorrectness(String inputID) {
+        long ID = 0;
+        try {
+            ID = Long.valueOf(inputID);
+        } catch (NumberFormatException e) {
             throw new IncorrectIdException();
         }
+        if(ID <= 0) {
+            throw new IncorrectIdException();
+        }
+        return ID;
     }
 
     public void deleteAll() {
@@ -28,14 +35,15 @@ public class UserService {
         return userDao.getAll();
     }
 
-    public User getByID(long inputID) {
+    public User getByID(String inputID) {
+        long ID = 0;
         try {
-            checkIDCorrectness(inputID);
+            ID = checkIDCorrectness(inputID);
         } catch (IncorrectIdException e) {
             log.warn("Введён неправильный ID");
             return null;
         }
-        return userDao.getById(inputID);
+        return userDao.getById(ID);
     }
 
     public void createUser(String login, String password, String email, UserRole role) {
@@ -48,16 +56,17 @@ public class UserService {
         }
     }
 
-    public void updateByID(long inputID, String newLogin, String newPassword, String newEmail, UserRole newRole) {
+    public void updateByID(String inputID, String newLogin, String newPassword, String newEmail, UserRole newRole) {
+        long ID = 0;
         try {
-            checkIDCorrectness(inputID);
+            ID = checkIDCorrectness(inputID);
         } catch (IncorrectIdException e) {
             log.warn("Введён неправильный ID");
             return;
         }
         if(getByID(inputID) != null) {
             if (newLogin != null && newPassword != null && newEmail != null) {
-                userDao.updateById(inputID, new User(inputID, newLogin, newPassword, newEmail, newRole));
+                userDao.updateById(ID, new User(ID, newLogin, newPassword, newEmail, newRole));
                 log.info("Пользователь успешно обновлён");
             } else {
                 log.warn("Новый пользователь имеет некорректные данные");
@@ -69,15 +78,16 @@ public class UserService {
         }
     }
 
-    public void deleteByID(long inputID) {
+    public void deleteByID(String inputID) {
+        long ID = 0;
         try {
-            checkIDCorrectness(inputID);
+            ID = checkIDCorrectness(inputID);
         } catch (IncorrectIdException e) {
             log.warn("Введён неправильный ID");
             return;
         }
         if(getByID(inputID) != null) {
-            userDao.deleteById(inputID);
+            userDao.deleteById(ID);
             log.info("Пользователь успешно удалён");
         } else {
             log.info("Пользователя с введённым ID не существует");

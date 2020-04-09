@@ -57,7 +57,7 @@ public class ConsoleInterface {
                                 break;
                             case "4":
                                 System.out.println("Enter ID: ");
-                                long id = scanner.nextLong();
+                                String id = scanner.nextLine();
                                 User tempUser = userService.getByID(id);
                                 if(tempUser != null) {
                                     System.out.println(tempUser.toString());
@@ -67,7 +67,7 @@ public class ConsoleInterface {
                                 break;
                             case "5":
                                 System.out.println("Enter needed user's ID: ");
-                                long idToUpdate = scanner.nextLong();
+                                id = scanner.nextLine();
                                 System.out.println("Enter new user information");
                                 System.out.println("Login: ");
                                 login = scanner.nextLine();
@@ -77,11 +77,11 @@ public class ConsoleInterface {
                                 email = scanner.nextLine();
                                 System.out.println("Role: ");
                                 role = UserRole.valueOf(scanner.nextLine());
-                                userService.updateByID(idToUpdate, login, password, email, role);
+                                userService.updateByID(id, login, password, email, role);
                                 break;
                             case "6":
                                 System.out.println("Enter needed user's ID: ");
-                                id = scanner.nextLong();
+                                id = scanner.nextLine();
                                 userService.deleteByID(id);
                                 break;
                             default:
