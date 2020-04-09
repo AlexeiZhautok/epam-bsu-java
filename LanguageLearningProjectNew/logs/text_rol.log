@@ -56,3 +56,18 @@
 2020-04-09 19:26:13 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
 2020-04-09 19:27:50 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
 2020-04-09 19:28:01 [main] WARN  com.company.dao.UserDao - Пользователь с введённым логином уже существует
+2020-04-09 19:46:34 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
+2020-04-09 19:47:18 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-09 19:47:47 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
+2020-04-09 19:50:07 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
+2020-04-09 19:50:29 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
+2020-04-09 19:50:38 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
+2020-04-09 19:53:15 [main] WARN  com.company.dao.UserDao - Введена неправильная почта
+2020-04-09 19:53:25 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-09 19:53:42 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-09 19:54:18 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-09 19:56:12 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
+2020-04-09 19:56:19 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
+2020-04-09 19:56:35 [main] WARN  com.company.dao.UserDao - Пользователь с таким логином уже существует
+2020-04-09 19:57:03 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-09 20:01:49 [main] WARN  com.company.dao.UserDao - Пользователя с введённым ID не существует

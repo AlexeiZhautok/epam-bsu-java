@@ -11,7 +11,7 @@ public class Course {
     long id;
     private String name;
     private String organization;
-    public ArrayList<User> users = new ArrayList<>();
+    public ArrayList<Long> users = new ArrayList<>();
 
 
     public long getId() { return id; }
@@ -23,7 +23,7 @@ public class Course {
     public String getOrganization() { return organization; }
     public void setOrganization(String organization) { this.organization = organization; }
 
-    public ArrayList<User> getUsers() { return users; }
+    public ArrayList<Long> getUsers() { return users; }
 
     public Course(long id, String name, String organization) {
         this.id = id;
@@ -42,19 +42,28 @@ public class Course {
                 Objects.equals(users, course.users);
     }
 
-    @Override
-    public String toString() {
-        return "Id: " + id + "\n" +
-                "Name: " + name + "\n" +
-                "Organization: " + organization + "\n" +
-                "Users: " + users.toString() + "\n";
-    }
+//    @Override
+//    public String toString() {
+//        return "Id: " + id + "\n" +
+//                "Name: " + name + "\n" +
+//                "Organization: " + organization + "\n" +
+//                "Users: " + users.toString() + "\n";
+//    }
+    // REDO!!!
 
     public String toStringFileFormat() {
         String delim = CourseDao.delim;
-        return id + delim +
-                name + delim +
-                organization + delim +
-                users;
+        String finalString = id + delim +
+                            name + delim +
+                            organization + "\n";
+        boolean isFirst = true;
+        for(long userID : users) {
+            if(!isFirst) {
+                finalString += delim;
+            }
+            finalString += userID;
+            isFirst = false;
+        }
+        return finalString;
     }
 }

@@ -1,6 +1,7 @@
 package com.company.service;
 
 import com.company.dao.UserDao;
+import com.company.exceptions.IncorrectEmailException;
 import com.company.exceptions.IncorrectIdException;
 import com.company.exceptions.IncorrectRoleException;
 import com.company.model.User;
@@ -42,6 +43,12 @@ public class UserService {
         return ID;
     }
 
+    private void checkEmailCorrectness(String inputEmail){
+        if (!inputEmail.contains("@")) {
+            throw new IncorrectEmailException();
+        }
+    }
+
     public void deleteAll() {
         userDao.deleteAll();
     }
@@ -61,7 +68,7 @@ public class UserService {
         return userDao.getById(ID);
     }
 
-    public void createUser(String login, String password, String email, String inputRole) {
+    public void createUser(String login, String password, String inputEmail, String inputRole) {
         UserRole role;
         try {
             role = checkRoleCorrectness(inputRole);
@@ -69,12 +76,18 @@ public class UserService {
             log.warn("Введена неправильная роль");
             return;
         }
-        if (checkFieldsEmptiness(login, password, email)) {
-            if(userDao.getByLogin(login) != null) {
-                log.warn("Пользователь с введённым логином уже существует");
-                return;
-            }
-            userDao.createUser(login, password, email, role);
+        try {
+            checkEmailCorrectness(inputEmail);
+        } catch (IncorrectEmailException e) {
+            log.warn("Введена неправильная почта");
+            return;
+        }
+        if(userDao.getByLogin(login) != null) {
+            log.warn("Пользователь с таким логином уже существует");
+            return;
+        }
+        if (checkFieldsEmptiness(login, password, inputEmail)) {
+            userDao.createUser(login, password, inputEmail, role);
             log.info("Пользователь успешно создан");
         } else {
             log.warn("Введены некорректные данные");

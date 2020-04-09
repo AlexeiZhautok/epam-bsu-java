@@ -114,19 +114,14 @@ public class UserDao {
     }
 
     public void updateById (long inputId, User newUser) {
-        List<User> users = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(DB_Destination))) {
-            String tempLine = "";
-            while ((tempLine = reader.readLine()) != null) {
-                User temp = parseUser(tempLine);
-                if((temp.getId() == inputId)) {
-                    users.add(newUser);
-                } else {
-                    users.add(temp);
-                }
+        List<User> users = getAll();
+        for(var userIter : users) {
+            if(userIter.getId() == inputId) {
+                userIter.setLogin(newUser.getLogin());
+                userIter.setPassword(newUser.getPassword());
+                userIter.setEmail(newUser.getEmail());
+                userIter.setRole(newUser.getRole());
             }
-        } catch (IOException e) {
-            log.fatal(e);
         }
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination))) {
             for (User userIter : users) {
