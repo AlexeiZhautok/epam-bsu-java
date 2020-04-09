@@ -68,11 +68,12 @@ public class User {
 
     @Override
     public String toString() {
-        return "Id: " + id + "\n" +
-                "Login: " + login + "\n" +
-                "Password: " + password + "\n" +
-                "E-Mail: " + email + "\n" +
-                "Role: " + role + "\n";
+        String delim = ", ";
+        return "Id: " + id + delim +
+                "Login: " + login + delim +
+                "Password: " + password + delim +
+                "E-Mail: " + email + delim +
+                "Role: " + role;
     }
 
     public String toStringFileFormat() {

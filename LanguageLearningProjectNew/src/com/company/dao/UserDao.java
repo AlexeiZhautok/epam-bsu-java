@@ -69,6 +69,21 @@ public class UserDao {
         return null;
     }
 
+    public User getByLogin(String inputLogin) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(DB_Destination))) {
+            String tempLine = "";
+            while ((tempLine = reader.readLine()) != null) {
+                User temp = parseUser(tempLine);
+                if (temp.getLogin().equals(inputLogin)) {
+                    return temp;
+                }
+            }
+        } catch (IOException e) {
+            log.fatal(e);
+        }
+        return null;
+    }
+
     public void createUser(String login, String password, String email, UserRole role) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination, true))) {
             User newUser = new User(getLastID() + 1, login, password, email, role);

@@ -70,6 +70,10 @@ public class UserService {
             return;
         }
         if (checkFieldsEmptiness(login, password, email)) {
+            if(userDao.getByLogin(login) != null) {
+                log.warn("Пользователь с введённым логином уже существует");
+                return;
+            }
             userDao.createUser(login, password, email, role);
             log.info("Пользователь успешно создан");
         } else {
