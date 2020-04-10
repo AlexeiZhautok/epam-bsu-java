@@ -16,7 +16,39 @@ public class CourseDao {
     public static Logger log = LogManager.getLogger();
 
     public long getLastID() {
-        return 0;
+        long toReturn = 0;
+        try (BufferedReader reader = new BufferedReader(new FileReader(DB_Destination))) {
+            String tempLine = "";
+            while ((tempLine = reader.readLine()) != null) {
+                toReturn = parseCourseInfo(tempLine).getId();
+                reader.readLine();
+            }
+        } catch (IOException e) {
+            log.fatal(e);
+        }
+        return toReturn;
+    }
+
+    public Course getByID(long inputID) {
+        List<Course> courseList = getAll();
+        for(Course courseIter : courseList) {
+            if(courseIter.getId() == inputID) {
+                return courseIter;
+            }
+        }
+        return null;
+    }
+
+    public void updateInfoByID(long inputID, String name, String organization) {
+        List<Course> courseList = getAll();
+        deleteAll();
+        for(Course courseIter : courseList) {
+            if(courseIter.getId() == inputID) {
+                courseIter.setName(name);
+                courseIter.setOrganization(organization);
+            }
+        recreateCourse(courseIter);
+        }
     }
 
     public Course parseCourseInfo(String input) {

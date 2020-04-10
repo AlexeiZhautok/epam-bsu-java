@@ -18,11 +18,9 @@ public class Main {
         //IT.users.add(2L);
         //CDTest.createNewCourse("IT", "Yandex");
         //CDTest.recreateCourse(IT);
-        List<Course> testCourses = CDTest.getAll();
-        for(Course iter : testCourses) {
-            System.out.println(iter.toStringFileFormat());
-        }
-
+//        CDTest.createNewCourse("TI", "Xendexox");
+//        System.out.println(CDTest.getLastID());
+        CDTest.updateInfoByID(2, "AI", "Xaxdex");
 
         ConsoleInterface view = new ConsoleInterface();
         view.showInterface();

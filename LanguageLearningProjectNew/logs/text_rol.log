@@ -71,3 +71,12 @@
 2020-04-09 19:56:35 [main] WARN  com.company.dao.UserDao - Пользователь с таким логином уже существует
 2020-04-09 19:57:03 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
 2020-04-09 20:01:49 [main] WARN  com.company.dao.UserDao - Пользователя с введённым ID не существует
+2020-04-10 10:25:13 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
+2020-04-10 10:25:57 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
+2020-04-10 10:26:18 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-10 10:26:57 [main] WARN  com.company.dao.UserDao - Введена неправильная роль
+2020-04-10 10:27:10 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-10 10:27:35 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-10 10:29:21 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
+2020-04-10 10:29:38 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
+2020-04-10 10:29:48 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён

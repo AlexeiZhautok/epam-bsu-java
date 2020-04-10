@@ -55,31 +55,43 @@ public class UserDao {
     }
 
     public User getById(long inputId) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(DB_Destination))) {
-            String tempLine = "";
-            while ((tempLine = reader.readLine()) != null) {
-                User temp = parseUser(tempLine);
-                if (temp.getId() == inputId) {
-                    return temp;
-                }
+//        try (BufferedReader reader = new BufferedReader(new FileReader(DB_Destination))) {
+//            String tempLine = "";
+//            while ((tempLine = reader.readLine()) != null) {
+//                User temp = parseUser(tempLine);
+//                if (temp.getId() == inputId) {
+//                    return temp;
+//                }
+//            }
+//        } catch (IOException e) {
+//            log.fatal(e);
+//        }
+        List<User> userList = getAll();
+        for(User userIter : userList) {
+            if(userIter.getId() == inputId) {
+                return userIter;
             }
-        } catch (IOException e) {
-            log.fatal(e);
         }
         return null;
     }
 
     public User getByLogin(String inputLogin) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(DB_Destination))) {
-            String tempLine = "";
-            while ((tempLine = reader.readLine()) != null) {
-                User temp = parseUser(tempLine);
-                if (temp.getLogin().equals(inputLogin)) {
-                    return temp;
-                }
+//        try (BufferedReader reader = new BufferedReader(new FileReader(DB_Destination))) {
+//            String tempLine = "";
+//            while ((tempLine = reader.readLine()) != null) {
+//                User temp = parseUser(tempLine);
+//                if (temp.getLogin().equals(inputLogin)) {
+//                    return temp;
+//                }
+//            }
+//        } catch (IOException e) {
+//            log.fatal(e);
+//        }
+        List<User> userList = getAll();
+        for(User userIter : userList) {
+            if(userIter.getLogin().equals(inputLogin)) {
+                return userIter;
             }
-        } catch (IOException e) {
-            log.fatal(e);
         }
         return null;
     }
@@ -102,33 +114,25 @@ public class UserDao {
 
     public void deleteById(long inputId) {
         List<User> users = getAll();
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination))) {
-            for (User userIter : users) {
-                if (userIter.getId() != inputId) {
-                    createUser(userIter.getLogin(), userIter.getPassword(), userIter.getEmail(), userIter.getRole());
-                }
+        deleteAll();
+        for (User userIter : users) {
+            if (userIter.getId() != inputId) {
+                createUser(userIter.getLogin(), userIter.getPassword(), userIter.getEmail(), userIter.getRole());
             }
-        } catch (IOException e) {
-            log.fatal(e);
         }
     }
 
     public void updateById (long inputId, User newUser) {
         List<User> users = getAll();
-        for(var userIter : users) {
+        deleteAll();
+        for (User userIter : users) {
             if(userIter.getId() == inputId) {
                 userIter.setLogin(newUser.getLogin());
                 userIter.setPassword(newUser.getPassword());
                 userIter.setEmail(newUser.getEmail());
                 userIter.setRole(newUser.getRole());
             }
-        }
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination))) {
-            for (User userIter : users) {
-                createUser(userIter.getLogin(), userIter.getPassword(), userIter.getEmail(), userIter.getRole());
-            }
-        } catch (IOException e) {
-            log.fatal(e);
+            createUser(userIter.getLogin(), userIter.getPassword(), userIter.getEmail(), userIter.getRole());
         }
     }
 }
