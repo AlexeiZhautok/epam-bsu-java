@@ -64,10 +64,18 @@ public class CourseService {
         }
     }
 
-    public void addUserToCourse (long courseID, long userID) {
-        if(userService.getByID(Long.toString(userID)) != null) {
-            if(courseDao.getByID(courseID) != null) {
-                courseDao.addUserByID(courseID, userID);
+    public void addUserToCourse (String courseID, String userID) {
+        long longCourseID;
+        try {
+            longCourseID = checkIDCorrectness(courseID);
+        } catch(IncorrectIdException e) {
+            log.warn("Введён неправильный ID");
+            return;
+        }
+        User userFound = userService.getByID(userID);
+        if(userFound != null) {
+            if(getByID(courseID) != null) {
+                courseDao.addUserByID(longCourseID, userFound.getId());
                 log.info("Пользователь успешно добавлен");
             } else {
                 log.warn("Курса с введённым ID не существует");
@@ -78,7 +86,40 @@ public class CourseService {
         }
     }
 
-    public void updateInfoByID(long courseID, String name, String organization) {
+    public void updateInfoByID(String courseID, String name, String organization) {
+        long longCourseID;
+        try {
+            longCourseID = checkIDCorrectness(courseID);
+        } catch(IncorrectIdException e) {
+            log.warn("Введён неправильный ID");
+            return;
+        }
+        if(courseDao.getByID(longCourseID) != null) {
+            if(courseDao.getByName(name) != null) {
+                log.warn("Курс с введённым именем уже существует");
+                return;
+            } else {
+                courseDao.updateInfoByID(longCourseID, name, organization);
+            }
+        } else {
+            log.warn("Курса с введённым ID не существует");
+        }
+    }
 
+    public void deleteByID(String courseID) {
+        long longCourseID;
+        try {
+            longCourseID = checkIDCorrectness(courseID);
+        } catch(IncorrectIdException e) {
+            log.warn("Введён неправильный ID");
+            return;
+        }
+        if(courseDao.getByID(longCourseID) != null) {
+            courseDao.deleteByID(longCourseID);
+            log.info("Курс успешно удалён");
+        } else {
+            log.warn("Курса с введённым ID не существует");
+            return;
+        }
     }
 }

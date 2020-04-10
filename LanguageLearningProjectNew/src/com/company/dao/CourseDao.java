@@ -77,6 +77,16 @@ public class CourseDao {
         }
     }
 
+    public void deleteByID(long inputID) {
+        List<Course> courseList = getAll();
+        deleteAll();
+        for(Course courseIter : courseList) {
+            if(courseIter.getId() != inputID) {
+                recreateCourse(courseIter);
+            }
+        }
+    }
+
     public void createNewCourse(String name, String organization) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination, true))) {
             long ID = getLastID() + 1;
@@ -89,7 +99,7 @@ public class CourseDao {
 
     public void recreateCourse(Course course) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination, true))) {
-            course.setId(getLastID() + 1);
+            //course.setId(getLastID() + 1);
             writer.write(course.toStringFileFormat());
             writer.newLine();
         } catch (IOException e) {

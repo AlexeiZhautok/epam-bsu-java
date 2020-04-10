@@ -105,6 +105,14 @@ public class UserDao {
         }
     }
 
+    public void recreateUser(User user) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination, true))) {
+            writer.write(user.toStringFileFormat());
+            writer.newLine();
+        } catch (IOException ignored) {
+        }
+    }
+
     public void deleteAll() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination))) {
             writer.write("");
@@ -117,7 +125,7 @@ public class UserDao {
         deleteAll();
         for (User userIter : users) {
             if (userIter.getId() != inputId) {
-                createUser(userIter.getLogin(), userIter.getPassword(), userIter.getEmail(), userIter.getRole());
+                recreateUser(userIter);
             }
         }
     }
@@ -132,7 +140,7 @@ public class UserDao {
                 userIter.setEmail(newUser.getEmail());
                 userIter.setRole(newUser.getRole());
             }
-            createUser(userIter.getLogin(), userIter.getPassword(), userIter.getEmail(), userIter.getRole());
+            recreateUser(newUser);
         }
     }
 }

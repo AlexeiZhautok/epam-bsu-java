@@ -1,11 +1,6 @@
 import com.company.dao.CourseDao;
-import com.company.model.Course;
-import com.company.model.UserRole;
 import com.company.service.UserService;
-import com.company.view.ConsoleInterface;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.company.view.ConsoleView;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,7 +18,7 @@ public class Main {
 //        CDTest.updateInfoByID(2, "AI", "Xaxdex");
 //        CDTest.addUserByID(1, 1);
 
-        ConsoleInterface view = new ConsoleInterface();
+        ConsoleView view = new ConsoleView();
         view.showInterface();
     }
 }

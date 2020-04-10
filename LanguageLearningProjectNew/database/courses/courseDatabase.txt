@@ -1,6 +1,4 @@
-1-IT-Yandex
-1
-2-AI-Xaxdex
-1-2
-3-TI-Xendexox
+2-Modern C++ programming, part 2-Yandex
+2
+3-Modern C++ programming, part 3-Yandex
 

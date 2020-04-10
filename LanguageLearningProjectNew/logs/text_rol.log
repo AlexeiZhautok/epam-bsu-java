@@ -1,82 +1,18 @@
-2020-04-03 18:29:16 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-03 18:30:15 [main] FATAL com.company.dao.UserDao - java.util.NoSuchElementException
-2020-04-03 18:30:15 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-03 18:33:01 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-03 18:33:16 [main] FATAL com.company.dao.UserDao - java.util.NoSuchElementException
-2020-04-03 18:33:16 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-03 18:34:15 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-03 18:35:02 [main] FATAL com.company.dao.UserDao - java.util.NoSuchElementException
-2020-04-03 18:35:02 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-03 18:36:00 [main] FATAL com.company.dao.UserDao - java.util.NoSuchElementException
-2020-04-03 18:36:01 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-03 18:36:11 [main] FATAL com.company.dao.UserDao - java.util.NoSuchElementException
-2020-04-03 18:36:11 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-03 18:36:19 [main] FATAL com.company.dao.UserDao - java.util.NoSuchElementException
-2020-04-03 18:36:19 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-03 18:36:46 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-03 18:37:03 [main] WARN  com.company.dao.UserDao - Пользователь с введённым ID уже существует
-2020-04-03 18:37:52 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-03 18:38:17 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
-2020-04-03 18:39:00 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
-2020-04-03 18:42:24 [main] WARN  com.company.dao.UserDao - Пользователь с введённым ID уже существует
-2020-04-03 18:42:35 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
-2020-04-03 18:42:51 [main] INFO  com.company.dao.UserDao - Пользователя с введённым ID не существует
-2020-04-03 18:43:01 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
-2020-04-03 18:44:14 [main] WARN  com.company.dao.UserDao - Пользователь с указанным новым ID уже существует
-2020-04-03 18:46:27 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
-2020-04-03 19:07:02 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-03 19:09:10 [main] WARN  com.company.dao.UserDao - Пользователя с введённым ID не существует
-2020-04-09 17:24:08 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 17:34:33 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 17:35:07 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 17:36:52 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
-2020-04-09 17:55:06 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
-2020-04-09 17:55:12 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
-2020-04-09 17:55:17 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
-2020-04-09 17:56:05 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
-2020-04-09 18:09:16 [main] WARN  com.company.dao.UserDao - Введена неправильная роль
-2020-04-09 18:09:32 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 18:10:33 [main] WARN  com.company.dao.UserDao - Введена неправильная роль
-2020-04-09 18:10:56 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 18:15:32 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 18:17:32 [main] WARN  com.company.dao.UserDao - Введены некорректные данные
-2020-04-09 18:20:17 [main] WARN  com.company.dao.UserDao - Введены некорректные данные
-2020-04-09 18:20:29 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 18:28:35 [main] WARN  com.company.dao.UserDao - Введены некорректные данные
-2020-04-09 18:28:51 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 19:15:43 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 19:16:34 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 19:16:53 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 19:17:05 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 19:18:03 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 19:23:37 [main] WARN  com.company.dao.UserDao - Введена неправильная роль
-2020-04-09 19:24:16 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 19:25:46 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 19:25:55 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 19:26:13 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 19:27:50 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
-2020-04-09 19:28:01 [main] WARN  com.company.dao.UserDao - Пользователь с введённым логином уже существует
-2020-04-09 19:46:34 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
-2020-04-09 19:47:18 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 19:47:47 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
-2020-04-09 19:50:07 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
-2020-04-09 19:50:29 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
-2020-04-09 19:50:38 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
-2020-04-09 19:53:15 [main] WARN  com.company.dao.UserDao - Введена неправильная почта
-2020-04-09 19:53:25 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 19:53:42 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 19:54:18 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 19:56:12 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
-2020-04-09 19:56:19 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
-2020-04-09 19:56:35 [main] WARN  com.company.dao.UserDao - Пользователь с таким логином уже существует
-2020-04-09 19:57:03 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-09 20:01:49 [main] WARN  com.company.dao.UserDao - Пользователя с введённым ID не существует
-2020-04-10 10:25:13 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
-2020-04-10 10:25:57 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
-2020-04-10 10:26:18 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-10 10:26:57 [main] WARN  com.company.dao.UserDao - Введена неправильная роль
-2020-04-10 10:27:10 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-10 10:27:35 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
-2020-04-10 10:29:21 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
-2020-04-10 10:29:38 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
-2020-04-10 10:29:48 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
+2020-04-10 12:59:54 [main] WARN  com.company.dao.CourseDao - Курс с таким именем уже существует
+2020-04-10 13:00:19 [main] INFO  com.company.dao.CourseDao - Курс успешно создан
+2020-04-10 13:00:44 [main] WARN  com.company.dao.CourseDao - Курс с введённым именем уже существует
+2020-04-10 13:01:45 [main] WARN  com.company.dao.CourseDao - Курса с введённым ID не существует
+2020-04-10 13:01:54 [main] WARN  com.company.dao.CourseDao - Введён неправильный ID
+2020-04-10 13:02:00 [main] WARN  com.company.dao.CourseDao - Введён неправильный ID
+2020-04-10 13:02:25 [main] WARN  com.company.dao.CourseDao - Пользователя с введённым ID не существует - добавление в курс не произошло
+2020-04-10 13:02:38 [main] WARN  com.company.dao.CourseDao - Введён неправильный ID
+2020-04-10 13:02:58 [main] WARN  com.company.dao.CourseDao - Пользователя с введённым ID не существует - добавление в курс не произошло
+2020-04-10 13:03:11 [main] WARN  com.company.dao.UserDao - Введён неправильный ID
+2020-04-10 13:03:11 [main] WARN  com.company.dao.CourseDao - Пользователя с введённым ID не существует - добавление в курс не произошло
+2020-04-10 13:04:04 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-10 13:04:07 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-10 13:04:45 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-10 13:04:57 [main] WARN  com.company.dao.CourseDao - Пользователя с введённым ID не существует - добавление в курс не произошло
+2020-04-10 13:05:06 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-10 13:05:37 [main] INFO  com.company.dao.CourseDao - Курс успешно удалён
+2020-04-10 13:05:56 [main] INFO  com.company.dao.CourseDao - Курс успешно создан
