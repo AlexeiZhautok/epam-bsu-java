@@ -164,4 +164,13 @@ public class CourseDao {
             recreateCourse(courseIter);
         }
     }
+
+    public void removeAllUsersFromAllCourses() {
+        List<Course> courseList = getAll();
+        deleteAll();
+        for(Course courseIter : courseList) {
+            courseIter.setUsers(new ArrayList<Long>());
+            recreateCourse(courseIter);
+        }
+    }
 }

@@ -24,3 +24,6 @@
 2020-04-10 13:59:14 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
 2020-04-10 13:59:18 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
 2020-04-10 13:59:34 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
+2020-04-10 15:07:58 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-10 15:08:21 [main] INFO  com.company.dao.CourseDao - Курс успешно создан
+2020-04-10 15:08:28 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен

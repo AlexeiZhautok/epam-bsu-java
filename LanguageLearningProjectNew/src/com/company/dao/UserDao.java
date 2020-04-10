@@ -117,6 +117,7 @@ public class UserDao {
     public void deleteAll() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination))) {
             writer.write("");
+            DaoUtility.courseDao.removeAllUsersFromAllCourses();
         } catch (IOException ignored) {
         }
     }
