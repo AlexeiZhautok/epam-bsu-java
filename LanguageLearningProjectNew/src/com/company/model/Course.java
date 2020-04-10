@@ -24,6 +24,7 @@ public class Course {
     public void setOrganization(String organization) { this.organization = organization; }
 
     public ArrayList<Long> getUsers() { return users; }
+    public void setUsers(ArrayList<Long> users) { this.users = users; }
 
     public Course(long id, String name, String organization) {
         this.id = id;
