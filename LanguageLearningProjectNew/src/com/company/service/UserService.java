@@ -1,5 +1,6 @@
 package com.company.service;
 
+import com.company.dao.DaoUtility;
 import com.company.dao.UserDao;
 import com.company.exceptions.IncorrectEmailException;
 import com.company.exceptions.IncorrectIdException;
@@ -13,7 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class UserService {
-    private UserDao userDao = new UserDao();
+    private UserDao userDao = DaoUtility.userDao;
     Logger log = UserDao.log;
 
     private UserRole checkRoleCorrectness(String inputRole) {
@@ -140,4 +141,5 @@ public class UserService {
             return;
         }
     }
+
 }

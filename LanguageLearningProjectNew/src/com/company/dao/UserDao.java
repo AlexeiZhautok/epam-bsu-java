@@ -2,6 +2,7 @@ package com.company.dao;
 
 import com.company.model.User;
 import com.company.model.UserRole;
+import com.company.service.ServiceUtility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -126,6 +127,7 @@ public class UserDao {
         for (User userIter : users) {
             if (userIter.getId() != inputId) {
                 recreateUser(userIter);
+                DaoUtility.courseDao.removeUserFromAllCourses(inputId);
             }
         }
     }

@@ -144,4 +144,24 @@ public class CourseDao {
         }
         return null;
     }
+
+    public void removeUserByID(long courseID, long userID) {
+        List<Course> courseList = getAll();
+        deleteAll();
+        for(Course courseIter : courseList) {
+            if(courseIter.getId() == courseID) {
+                courseIter.removeUser(userID);
+            }
+            recreateCourse(courseIter);
+        }
+    }
+
+    public void removeUserFromAllCourses(long userID) {
+        List<Course> courseList = getAll();
+        deleteAll();
+        for(Course courseIter : courseList) {
+            courseIter.removeUser(userID);
+            recreateCourse(courseIter);
+        }
+    }
 }

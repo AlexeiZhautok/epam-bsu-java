@@ -1,6 +1,7 @@
 package com.company.service;
 
 import com.company.dao.CourseDao;
+import com.company.dao.DaoUtility;
 import com.company.dao.UserDao;
 import com.company.exceptions.IncorrectIdException;
 import com.company.model.Course;
@@ -10,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.List;
 
 public class CourseService {
-    private CourseDao courseDao = new CourseDao();
+    private CourseDao courseDao = DaoUtility.courseDao;
     Logger log = CourseDao.log;
     UserService userService = ServiceUtility.userService;
 
@@ -74,7 +75,14 @@ public class CourseService {
         }
         User userFound = userService.getByID(userID);
         if(userFound != null) {
-            if(getByID(courseID) != null) {
+            Course courseFound = courseDao.getByID(longCourseID);
+            if(courseFound != null) {
+                for(long id : courseFound.getUsers()) {
+                    if(id == userFound.getId()) {
+                        log.warn("Пользователь уже записан на курс");
+                        return;
+                    }
+                }
                 courseDao.addUserByID(longCourseID, userFound.getId());
                 log.info("Пользователь успешно добавлен");
             } else {
@@ -83,6 +91,7 @@ public class CourseService {
             }
         } else {
             log.warn("Пользователя с введённым ID не существует - добавление в курс не произошло");
+            return;
         }
     }
 
@@ -119,6 +128,28 @@ public class CourseService {
             log.info("Курс успешно удалён");
         } else {
             log.warn("Курса с введённым ID не существует");
+            return;
+        }
+    }
+
+    public void removeUserByID(String courseID, String userID) {
+        long longCourseID;
+        try {
+            longCourseID = checkIDCorrectness(courseID);
+        } catch(IncorrectIdException e) {
+            log.warn("Введён неправильный ID");
+            return;
+        }
+        User userFound = userService.getByID(userID);
+        if(userFound != null) {
+            if(courseDao.getByID(longCourseID) != null) {
+                courseDao.removeUserByID(longCourseID, userFound.getId());
+            } else {
+                log.warn("Курса с введённым ID не существует");
+                return;
+            }
+        } else {
+            log.warn("Пользователя с введённым ID не существует");
             return;
         }
     }

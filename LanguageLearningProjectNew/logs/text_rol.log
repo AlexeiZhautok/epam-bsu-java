@@ -16,3 +16,11 @@
 2020-04-10 13:05:06 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
 2020-04-10 13:05:37 [main] INFO  com.company.dao.CourseDao - Курс успешно удалён
 2020-04-10 13:05:56 [main] INFO  com.company.dao.CourseDao - Курс успешно создан
+2020-04-10 13:15:37 [main] WARN  com.company.dao.CourseDao - Пользователь уже записан на курс
+2020-04-10 13:15:45 [main] WARN  com.company.dao.CourseDao - Пользователя с введённым ID не существует - добавление в курс не произошло
+2020-04-10 13:15:53 [main] WARN  com.company.dao.CourseDao - Пользователь уже записан на курс
+2020-04-10 13:15:57 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-10 13:16:03 [main] WARN  com.company.dao.CourseDao - Пользователь уже записан на курс
+2020-04-10 13:59:14 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-10 13:59:18 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-10 13:59:34 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён

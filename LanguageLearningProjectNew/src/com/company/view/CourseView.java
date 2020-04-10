@@ -25,6 +25,7 @@ public class CourseView {
             System.out.println("5. Update course info by ID");
             System.out.println("6. Delete course by ID");
             System.out.println("7. Add user to a course");
+            System.out.println("8. Remove user from a course");
             System.out.println("0. Exit");
 
             String option = scanner.nextLine();
@@ -78,6 +79,13 @@ public class CourseView {
                     System.out.println("Enter needed user's ID: ");
                     String userID = scanner.nextLine();
                     courseService.addUserToCourse(courseID, userID);
+                    break;
+                case "8":
+                    System.out.println("Enter needed course's ID: ");
+                    courseID = scanner.nextLine();
+                    System.out.println("Enter needed user's ID: ");
+                    userID = scanner.nextLine();
+                    courseService.removeUserByID(courseID, userID);
                     break;
                 default:
                     courseFlag = false;

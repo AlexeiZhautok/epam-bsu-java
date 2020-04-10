@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Course {
-    long id;
+    private long id;
     private String name;
     private String organization;
     public ArrayList<Long> users = new ArrayList<>();
@@ -34,6 +34,10 @@ public class Course {
 
     public void addUser(long userID) {
         users.add(userID);
+    }
+
+    public void removeUser(long userID) {
+        users.remove(userID);
     }
 
     @Override
