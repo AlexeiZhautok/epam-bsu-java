@@ -32,6 +32,10 @@ public class Course {
         this.organization = organization;
     }
 
+    public void addUser(long userID) {
+        users.add(userID);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -97,6 +97,17 @@ public class CourseDao {
         }
     }
 
+    public void addUserByID(long courseID, long userID) {
+        List<Course> courseList = getAll();
+        deleteAll();
+        for(Course courseIter : courseList) {
+            if(courseIter.getId() == courseID) {
+                courseIter.addUser(userID);
+            }
+            recreateCourse(courseIter);
+        }
+    }
+
     public List<Course> getAll() {
         List<Course> toReturn = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(DB_Destination))) {

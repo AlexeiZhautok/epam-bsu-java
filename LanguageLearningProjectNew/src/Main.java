@@ -20,7 +20,8 @@ public class Main {
         //CDTest.recreateCourse(IT);
 //        CDTest.createNewCourse("TI", "Xendexox");
 //        System.out.println(CDTest.getLastID());
-        CDTest.updateInfoByID(2, "AI", "Xaxdex");
+//        CDTest.updateInfoByID(2, "AI", "Xaxdex");
+//        CDTest.addUserByID(1, 1);
 
         ConsoleInterface view = new ConsoleInterface();
         view.showInterface();
