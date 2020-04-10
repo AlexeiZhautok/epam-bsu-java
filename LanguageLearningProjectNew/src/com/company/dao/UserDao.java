@@ -27,7 +27,7 @@ public class UserDao {
         return new User(id, login, password, email, role);
     }
 
-    public long getLastID() {
+    private long getLastID() {
         long toReturn = 0;
         try (BufferedReader reader = new BufferedReader(new FileReader(DB_Destination))) {
             String tempLine = "";

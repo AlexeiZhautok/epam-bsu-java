@@ -15,7 +15,7 @@ public class CourseDao {
 
     public static Logger log = LogManager.getLogger();
 
-    public long getLastID() {
+    private long getLastID() {
         long toReturn = 0;
         try (BufferedReader reader = new BufferedReader(new FileReader(DB_Destination))) {
             String tempLine = "";
@@ -123,5 +123,15 @@ public class CourseDao {
             log.fatal(e);
         }
         return toReturn;
+    }
+
+    public Course getByName(String name) {
+        List<Course> courseList = getAll();
+        for(Course courseIter : courseList) {
+            if(courseIter.getName().equals(name)) {
+                return courseIter;
+            }
+        }
+        return null;
     }
 }

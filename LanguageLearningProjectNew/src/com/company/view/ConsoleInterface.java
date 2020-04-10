@@ -2,6 +2,7 @@ package com.company.view;
 
 import com.company.model.User;
 import com.company.model.UserRole;
+import com.company.service.ServiceUtility;
 import com.company.service.UserService;
 
 import java.sql.SQLOutput;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleInterface {
-    UserService userService = new UserService();
+    UserService userService = ServiceUtility.userService;
     Scanner scanner = new Scanner(System.in);
 
     public void showInterface() {
