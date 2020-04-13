@@ -143,7 +143,7 @@ public class UserDao {
                 userIter.setEmail(newUser.getEmail());
                 userIter.setRole(newUser.getRole());
             }
-            recreateUser(newUser);
+            recreateUser(userIter);
         }
     }
 }
