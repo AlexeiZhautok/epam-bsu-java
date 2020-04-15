@@ -51,7 +51,7 @@ public class UserService {
     }
 
     public void deleteAll() {
-        userDao.deleteAll();
+        userDao.deleteAll(true);
     }
 
     public List<User> getAll() {

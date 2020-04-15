@@ -114,17 +114,19 @@ public class UserDao {
         }
     }
 
-    public void deleteAll() {
+    public void deleteAll(boolean deleteAllFromCourses) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination))) {
             writer.write("");
-            DaoUtility.courseDao.removeAllUsersFromAllCourses();
+            if(deleteAllFromCourses) {
+                DaoUtility.courseDao.removeAllUsersFromAllCourses();
+            }
         } catch (IOException ignored) {
         }
     }
 
     public void deleteById(long inputId) {
         List<User> users = getAll();
-        deleteAll();
+        deleteAll(false);
         for (User userIter : users) {
             if (userIter.getId() != inputId) {
                 recreateUser(userIter);
@@ -135,7 +137,7 @@ public class UserDao {
 
     public void updateById (long inputId, User newUser) {
         List<User> users = getAll();
-        deleteAll();
+        deleteAll(false);
         for (User userIter : users) {
             if(userIter.getId() == inputId) {
                 userIter.setLogin(newUser.getLogin());
