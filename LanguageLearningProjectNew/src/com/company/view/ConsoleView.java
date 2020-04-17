@@ -12,7 +12,8 @@ public class ConsoleView {
     Scanner scanner = ViewUtility.scanner;
 
     public void showInterface() {
-        while(true) {
+        boolean consoleFlag = true;
+        while(consoleFlag) {
             System.out.println("Choose what objects to work with:");
             System.out.println("1. Users");
             System.out.println("2. Courses");
@@ -28,6 +29,7 @@ public class ConsoleView {
                     courseView.showInterface();
                     break;
                 default:
+                    consoleFlag = false;
                     break;
             }
         }

@@ -58,3 +58,20 @@
 2020-04-15 16:02:47 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
 2020-04-15 16:03:03 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
 2020-04-15 16:03:13 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
+2020-04-17 16:02:07 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: No suitable driver found for jdbc:oracle:thin:@localhost:1521:orcl
+2020-04-17 16:03:04 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: No suitable driver found for jdbc:oracle:@localhost:1521:orcl
+2020-04-17 16:13:15 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: No suitable driver found for jdbc:oracle:@localhost:1521:orcl
+2020-04-17 16:13:40 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: No suitable driver found for jdbc:oracle:thin:@localhost:1521:orcl
+2020-04-17 16:57:26 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLSyntaxErrorException: ORA-00903: неверно имя таблицы
+
+2020-04-17 17:10:13 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: Недопустимое имя столбца
+2020-04-17 17:10:13 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: Недопустимое имя столбца
+2020-04-17 17:25:15 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLSyntaxErrorException: ORA-01747: неверные спецификации для user.table.column, table.column или column
+
+2020-04-17 17:26:50 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLSyntaxErrorException: ORA-01747: неверные спецификации для user.table.column, table.column или column
+
+2020-04-17 17:28:21 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLSyntaxErrorException: ORA-01747: неверные спецификации для user.table.column, table.column или column
+
+2020-04-17 18:37:06 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: Не выполнен вызов ResultSet.next
+2020-04-17 18:39:23 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: Набор результатов после последней строки
+2020-04-17 18:39:51 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: Набор результатов после последней строки
