@@ -1,7 +1,6 @@
 package com.company.view;
 
 import com.company.model.User;
-import com.company.service.ServiceUtility;
 import com.company.service.UserService;
 import com.company.servicedb.UserServiceDatabase;
 
@@ -12,8 +11,8 @@ public class UserView {
 
     public void showInterface(boolean db) {
         boolean userFlag = true;
-        Scanner scanner = ViewUtility.scanner;
-        UserService userService = ServiceUtility.userService;
+        Scanner scanner = new Scanner(System.in);
+        UserService userService = new UserService();
         UserServiceDatabase userServiceDatabase = new UserServiceDatabase();
 
         while(userFlag) {

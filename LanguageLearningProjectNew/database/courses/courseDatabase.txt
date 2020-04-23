@@ -1,4 +1,4 @@
 1-C++-Yandex
-2
+
 2-Java-Yandex
 

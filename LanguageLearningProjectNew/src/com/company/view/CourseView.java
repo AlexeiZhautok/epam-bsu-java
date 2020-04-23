@@ -2,20 +2,17 @@ package com.company.view;
 
 import com.company.model.Course;
 import com.company.service.CourseService;
-import com.company.service.ServiceUtility;
-import com.company.service.UserService;
 import com.company.servicedb.CourseServiceDatabase;
 
-import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Scanner;
 
 public class CourseView {
     public void showInterface(boolean db) {
         boolean courseFlag = true;
-        Scanner scanner = ViewUtility.scanner;
+        Scanner scanner = new Scanner(System.in);
         //UserService userService = ServiceUtility.userService;
-        CourseService courseService = ServiceUtility.courseService;
+        CourseService courseService = new CourseService();
         CourseServiceDatabase courseServiceDatabase = new CourseServiceDatabase();
 
         while(courseFlag) {
@@ -57,7 +54,11 @@ public class CourseView {
                     String name = scanner.nextLine();
                     System.out.println("Organization: ");
                     String organization = scanner.nextLine();
-                    courseService.createNewCourse(name, organization);
+                    if(db) {
+                        courseServiceDatabase.createNewCourse(name, organization);
+                    } else {
+                        courseService.createNewCourse(name, organization);
+                    }
                     break;
                 case "4":
                     System.out.println("Enter ID: ");
@@ -82,26 +83,42 @@ public class CourseView {
                     name = scanner.nextLine();
                     System.out.println("New organization: ");
                     organization = scanner.nextLine();
-                    courseService.updateInfoByID(id, name, organization);
+                    if(db) {
+                        courseServiceDatabase.updateInfoByID(id, name, organization);
+                    } else {
+                        courseService.updateInfoByID(id, name, organization);
+                    }
                     break;
                 case "6":
                     System.out.println("Enter needed course's ID: ");
                     id = scanner.nextLine();
-                    courseService.deleteByID(id);
+                    if(db) {
+                        courseServiceDatabase.deleteByID(id);
+                    } else {
+                        courseService.deleteByID(id);
+                    }
                     break;
                 case "7":
                     System.out.println("Enter needed course's ID: ");
                     String courseID = scanner.nextLine();
                     System.out.println("Enter needed user's ID: ");
                     String userID = scanner.nextLine();
-                    courseService.addUserToCourse(courseID, userID);
+                    if(db) {
+                        courseServiceDatabase.addUserToCourse(courseID, userID);
+                    } else {
+                        courseService.addUserToCourse(courseID, userID);
+                    }
                     break;
                 case "8":
                     System.out.println("Enter needed course's ID: ");
                     courseID = scanner.nextLine();
                     System.out.println("Enter needed user's ID: ");
                     userID = scanner.nextLine();
-                    courseService.removeUserByID(courseID, userID);
+                    if(db) {
+                        courseServiceDatabase.removeUserByID(courseID, userID);
+                    } else {
+                        courseService.removeUserByID(courseID, userID);
+                    }
                     break;
                 default:
                     courseFlag = false;

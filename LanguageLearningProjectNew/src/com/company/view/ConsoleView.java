@@ -1,19 +1,18 @@
 package com.company.view;
 
 import com.company.service.CourseService;
-import com.company.service.ServiceUtility;
 import com.company.service.UserService;
 
 import java.util.Scanner;
 
 public class ConsoleView {
-    UserService userService = ServiceUtility.userService;
-    CourseService courseService = ServiceUtility.courseService;
-    Scanner scanner = ViewUtility.scanner;
-    UserView userView = new UserView();
-    CourseView courseView = new CourseView();
 
     public void showInterface() {
+        Scanner scanner = new Scanner(System.in);
+        UserService userService = new UserService();
+        CourseService courseService = new CourseService();
+        UserView userView = new UserView();
+        CourseView courseView = new CourseView();
         boolean consoleFlag = true;
         while(consoleFlag) {
             System.out.println("Choose what objects to work with:");

@@ -10,14 +10,14 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class CourseDao {
-    public static String delim = "-";
-    private String DB_Destination = "database/courses/courseDatabase.txt";
+    public final static String DELIM = "-";
+    private final String DB_DESTINATION = "database/courses/courseDatabase.txt";
 
     public static Logger log = LogManager.getLogger();
 
     private long getLastID() {
         long toReturn = 0;
-        try (BufferedReader reader = new BufferedReader(new FileReader(DB_Destination))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(DB_DESTINATION))) {
             String tempLine = "";
             while ((tempLine = reader.readLine()) != null) {
                 toReturn = parseCourseInfo(tempLine).getId();
@@ -52,7 +52,7 @@ public class CourseDao {
     }
 
     public Course parseCourseInfo(String input) {
-        StringTokenizer st = new StringTokenizer(input, delim);
+        StringTokenizer st = new StringTokenizer(input, DELIM);
         long ID = Long.parseLong(st.nextToken());
         String name = st.nextToken();
         String organization = st.nextToken();
@@ -62,7 +62,7 @@ public class CourseDao {
     public ArrayList<Long> parseCourseUsers(String input) {
         ArrayList<Long> toReturn = new ArrayList<>();
         if(!input.isEmpty()) {
-            StringTokenizer st = new StringTokenizer(input, delim);
+            StringTokenizer st = new StringTokenizer(input, DELIM);
             while(st.hasMoreTokens()) {
                 toReturn.add(Long.parseLong(st.nextToken()));
             }
@@ -71,9 +71,10 @@ public class CourseDao {
     }
 
     public void deleteAll() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_DESTINATION))) {
             writer.write("");
-        } catch (IOException ignored) {
+        } catch (IOException e) {
+            log.fatal(e);
         }
     }
 
@@ -88,7 +89,7 @@ public class CourseDao {
     }
 
     public void createNewCourse(String name, String organization) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination, true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_DESTINATION, true))) {
             long ID = getLastID() + 1;
             writer.write(new Course(ID, name, organization).toStringFileFormat());
             writer.newLine();
@@ -98,7 +99,7 @@ public class CourseDao {
     }
 
     public void recreateCourse(Course course) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination, true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_DESTINATION, true))) {
             //course.setId(getLastID() + 1);
             writer.write(course.toStringFileFormat());
             writer.newLine();
@@ -120,7 +121,7 @@ public class CourseDao {
 
     public List<Course> getAll() {
         List<Course> toReturn = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(DB_Destination))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(DB_DESTINATION))) {
             String tempLine = "";
             while ((tempLine = reader.readLine()) != null) {
                 Course temp = parseCourseInfo(tempLine);

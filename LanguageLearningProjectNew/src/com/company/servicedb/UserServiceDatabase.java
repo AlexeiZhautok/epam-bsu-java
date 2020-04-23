@@ -12,8 +12,8 @@ import org.apache.logging.log4j.Logger;
 import java.util.List;
 
 public class UserServiceDatabase {
-    Logger log = DatabaseDao.log;
-    DatabaseUserDao databaseUserDao = new DatabaseUserDao();
+    private Logger log = DatabaseDao.log;
+    private DatabaseUserDao databaseUserDao = new DatabaseUserDao();
 
     private UserRole checkRoleCorrectness(String inputRole) {
         UserRole role;
@@ -54,7 +54,7 @@ public class UserServiceDatabase {
             log.warn("Введена неправильная роль");
             return;
         }
-        if(databaseUserDao.getByLogin(login) != null) {
+        if(databaseUserDao.getByName(login) != null) {
             log.warn("Пользователь с таким логином уже существует");
             return;
         }

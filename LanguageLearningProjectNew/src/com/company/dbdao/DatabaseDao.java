@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class DatabaseDao<E> {
-    private final String user = "JAVA_EPAM";
-    private final String password = "oracle";
+    private final String USER = "JAVA_EPAM";
+    private final String PASSWORD = "oracle";
 
     public static Logger log = LogManager.getLogger();
     private Connection connection;
@@ -22,7 +22,7 @@ public abstract class DatabaseDao<E> {
 
     public DatabaseDao() {
         try {
-            connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", user, password);
+            connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", USER, PASSWORD);
         } catch (SQLException e) {
             log.fatal(e);
         } // Нужно ли здесь finally?
@@ -83,12 +83,24 @@ public abstract class DatabaseDao<E> {
         return null;
     }
 
+    public E getByName(String name) {
+        try {
+            response = statement.executeQuery(makeGetByNameQuery(name));
+            if(response.next()) {
+                return parseModel(response);
+            }
+        } catch (SQLException e) {
+            log.fatal(e);
+        }
+        return null;
+    }
+
     public long getLastID() {
         long id = 0;
         try {
             response = statement.executeQuery(makeGetLastIDQuery());
             if(response.next()) {
-                id = response.getLong("user_id");
+                id = response.getLong("id");
             }
         } catch (SQLException e) {
             log.fatal(e);
@@ -102,6 +114,7 @@ public abstract class DatabaseDao<E> {
     public abstract String makeDeleteByIDQuery(long id);
     public abstract String makeGetByIDQuery(long id);
     public abstract String makeGetLastIDQuery();
+    public abstract String makeGetByNameQuery(String name);
 
     public void setTable(String table) {
         this.table = table;

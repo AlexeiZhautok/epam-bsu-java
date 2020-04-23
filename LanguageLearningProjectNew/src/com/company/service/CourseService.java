@@ -1,8 +1,6 @@
 package com.company.service;
 
 import com.company.dao.CourseDao;
-import com.company.dao.DaoUtility;
-import com.company.dao.UserDao;
 import com.company.exceptions.IncorrectIdException;
 import com.company.model.Course;
 import com.company.model.User;
@@ -11,9 +9,9 @@ import org.apache.logging.log4j.Logger;
 import java.util.List;
 
 public class CourseService {
-    private CourseDao courseDao = DaoUtility.courseDao;
-    Logger log = CourseDao.log;
-    UserService userService = ServiceUtility.userService;
+    private CourseDao courseDao = new CourseDao();
+    private Logger log = CourseDao.log;
+    private UserService userService = new UserService();
 
     private long checkIDCorrectness(String inputID) {
         long ID = 0;

@@ -1,21 +1,18 @@
 package com.company.service;
 
-import com.company.dao.DaoUtility;
 import com.company.dao.UserDao;
 import com.company.exceptions.IncorrectEmailException;
 import com.company.exceptions.IncorrectIdException;
 import com.company.exceptions.IncorrectRoleException;
 import com.company.model.User;
 import com.company.model.UserRole;
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
 import java.util.List;
 
 public class UserService {
-    private UserDao userDao = DaoUtility.userDao;
-    Logger log = UserDao.log;
+    private UserDao userDao = new UserDao();
+    private Logger log = UserDao.log;
 
     private UserRole checkRoleCorrectness(String inputRole) {
         UserRole role;

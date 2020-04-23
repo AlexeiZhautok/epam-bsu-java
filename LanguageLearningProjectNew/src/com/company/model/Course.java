@@ -61,7 +61,7 @@ public class Course {
     // REDO!!!
 
     public String toStringFileFormat() {
-        String delim = CourseDao.delim;
+        String delim = CourseDao.DELIM;
         String finalString = id + delim +
                             name + delim +
                             organization + "\n";

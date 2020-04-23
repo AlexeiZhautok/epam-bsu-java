@@ -2,7 +2,6 @@ package com.company.dao;
 
 import com.company.model.User;
 import com.company.model.UserRole;
-import com.company.service.ServiceUtility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -10,16 +9,16 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class UserDao {
-    public static String delim = "-";
-    private String DB_Destination = "database/users/userDatabase.txt";
+    public final static String DELIM = "-";
+    private final String DB_DESTINATION = "database/users/userDatabase.txt";
 
     public static Logger log = LogManager.getLogger();
+    private CourseDao courseDao = new CourseDao();
 
     private User parseUser(String input) {
-        StringTokenizer st = new StringTokenizer(input, delim);
+        StringTokenizer st = new StringTokenizer(input, DELIM);
         long id = Long.parseLong(st.nextToken());
         String login = st.nextToken();
         String password = st.nextToken();
@@ -30,7 +29,7 @@ public class UserDao {
 
     private long getLastID() {
         long toReturn = 0;
-        try (BufferedReader reader = new BufferedReader(new FileReader(DB_Destination))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(DB_DESTINATION))) {
             String tempLine = "";
             while ((tempLine = reader.readLine()) != null) {
                 toReturn = parseUser(tempLine).getId();
@@ -43,7 +42,7 @@ public class UserDao {
 
     public List<User> getAll() {
         List<User> toReturn = new ArrayList<User>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(DB_Destination))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(DB_DESTINATION))) {
             String tempLine = "";
             while ((tempLine = reader.readLine()) != null) {
                 toReturn.add(parseUser(tempLine));
@@ -98,29 +97,32 @@ public class UserDao {
     }
 
     public void createUser(String login, String password, String email, UserRole role) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination, true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_DESTINATION, true))) {
             User newUser = new User(getLastID() + 1, login, password, email, role);
             writer.write(newUser.toStringFileFormat());
             writer.newLine();
-        } catch (IOException ignored) {
+        } catch (IOException e) {
+            log.fatal(e);
         }
     }
 
     public void recreateUser(User user) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination, true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_DESTINATION, true))) {
             writer.write(user.toStringFileFormat());
             writer.newLine();
-        } catch (IOException ignored) {
+        } catch (IOException e) {
+            log.fatal(e);
         }
     }
 
     public void deleteAll(boolean deleteAllFromCourses) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_Destination))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DB_DESTINATION))) {
             writer.write("");
             if(deleteAllFromCourses) {
-                DaoUtility.courseDao.removeAllUsersFromAllCourses();
+                courseDao.removeAllUsersFromAllCourses();
             }
-        } catch (IOException ignored) {
+        } catch (IOException e) {
+            log.fatal(e);
         }
     }
 
@@ -130,7 +132,7 @@ public class UserDao {
         for (User userIter : users) {
             if (userIter.getId() != inputId) {
                 recreateUser(userIter);
-                DaoUtility.courseDao.removeUserFromAllCourses(inputId);
+                courseDao.removeUserFromAllCourses(inputId);
             }
         }
     }

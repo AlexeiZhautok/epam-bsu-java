@@ -1,0 +1,95 @@
+2020-04-23 17:14:39 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:15:01 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLSyntaxErrorException: ORA-00904: "NACHALAS": недопустимый идентификатор
+
+2020-04-23 17:15:03 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: Недопустимое имя столбца
+2020-04-23 17:15:03 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.USERS_UNIQUE)
+
+2020-04-23 17:16:30 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно создан
+2020-04-23 17:16:34 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:16:51 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLSyntaxErrorException: ORA-00904: "NACHALAS": недопустимый идентификатор
+
+2020-04-23 17:17:08 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: Недопустимое имя столбца
+2020-04-23 17:18:45 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.USERS_UNIQUE)
+
+2020-04-23 17:18:45 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно создан
+2020-04-23 17:18:48 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:18:57 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLSyntaxErrorException: ORA-00904: "NACHALAS": недопустимый идентификатор
+
+2020-04-23 17:18:57 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно создан
+2020-04-23 17:19:27 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLSyntaxErrorException: ORA-00904: "NACHALAS": недопустимый идентификатор
+
+2020-04-23 17:19:27 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:19:27 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно создан
+2020-04-23 17:20:11 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:20:49 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-23 17:21:20 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLSyntaxErrorException: ORA-00904: "NACHALAS": недопустимый идентификатор
+
+2020-04-23 17:22:08 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:22:08 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно создан
+2020-04-23 17:22:12 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:22:50 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:24:00 [main] WARN  com.company.dbdao.DatabaseDao - Пользователь с таким логином уже существует
+2020-04-23 17:26:19 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:30:29 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:31:41 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:32:02 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно обновлён
+2020-04-23 17:35:22 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:37:34 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:37:47 [main] WARN  com.company.dbdao.DatabaseDao - Пользователь с таким логином уже существует
+2020-04-23 17:37:57 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно создан
+2020-04-23 17:38:15 [main] WARN  com.company.dbdao.DatabaseDao - Пользователя с введённым ID не существует
+2020-04-23 17:39:04 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:39:24 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно обновлён
+2020-04-23 17:39:32 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно удалён
+2020-04-23 17:45:47 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:50:47 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:51:16 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:51:36 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:51:46 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:59:54 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 18:00:02 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 18:01:53 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 18:08:36 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 18:08:49 [main] WARN  com.company.dbdao.DatabaseDao - Пользователь с таким логином уже существует
+2020-04-23 18:11:55 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 18:12:14 [main] WARN  com.company.dbdao.DatabaseDao - Курс с таким именем уже существует
+2020-04-23 18:12:29 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: Недопустимое имя столбца
+2020-04-23 18:12:29 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.COURSES_UNIQUE)
+
+2020-04-23 18:12:29 [main] INFO  com.company.dbdao.DatabaseDao - Курс успешно создан
+2020-04-23 18:13:46 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 18:14:00 [main] INFO  com.company.dbdao.DatabaseDao - Курс успешно создан
+2020-04-23 18:15:30 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 18:16:11 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 18:18:12 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 18:18:17 [main] INFO  com.company.dbdao.DatabaseDao - Курс успешно удалён
+2020-04-23 18:27:50 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+

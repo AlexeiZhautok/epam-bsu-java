@@ -75,7 +75,7 @@ public class User {
     }
 
     public String toStringFileFormat() {
-        String delim = UserDao.delim;
+        String delim = UserDao.DELIM;
         return id + delim +
                 login + delim +
                 password + delim +

@@ -54,8 +54,12 @@ public class DatabaseCourseDao extends DatabaseDao<Course> {
     }
 
     public String makeGetLastIDQuery() {
-        String query = "SELECT MAX(COURSE_ID) FROM COURSES";
+        String query = "SELECT MAX(COURSE_ID) AS ID FROM COURSES";
         return query;
+    }
+
+    public String makeGetByNameQuery(String name) {
+        return "SELECT * FROM COURSES WHERE COURSE_NAME = " + "'" + name + "'";
     }
 
     public void getUsers(Course course) {
@@ -67,6 +71,27 @@ public class DatabaseCourseDao extends DatabaseDao<Course> {
                 users.add(response.getLong("USER_ID"));
             }
             course.setUsers(users);
+        } catch (SQLException e) {
+            log.fatal(e);
+        }
+    }
+
+    public void addUser(long courseID, long userID) {
+        String query = "INSERT INTO COURSE_PARTICIPANTS (course_id, user_id)" +
+                "VALUES (" + courseID + "," + userID + ")";
+        try {
+            statement.executeQuery(query);
+        } catch (SQLException e) {
+            log.fatal(e);
+        }
+    }
+
+    public void deleteUser(long courseID, long userID) {
+        String query = "DELETE FROM COURSE_PARTICIPANTS WHERE " +
+                "COURSE_ID = " + courseID + " AND " +
+                "USER_ID = " + userID;
+        try {
+            statement.executeQuery(query);
         } catch (SQLException e) {
             log.fatal(e);
         }

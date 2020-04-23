@@ -52,17 +52,21 @@ public class DatabaseUserDao extends DatabaseDao<User> {
         return query;
     }
 
-    public User getByLogin(String login) {
-        String query = "SELECT * FROM USERS WHERE USER_LOGIN = " + "'" +login + "'";
-        try {
-            response = statement.executeQuery(query);
-            if(response.next()) {
-                return parseModel(response);
-            }
-        } catch (SQLException e) {
-            log.fatal(e);
-        }
-        return null;
+//    public User getByLogin(String login) {
+//        String query = "SELECT * FROM USERS WHERE USER_LOGIN = " + "'" +login + "'";
+//        try {
+//            response = statement.executeQuery(query);
+//            if(response.next()) {
+//                return parseModel(response);
+//            }
+//        } catch (SQLException e) {
+//            log.fatal(e);
+//        }
+//        return null;
+//    }
+
+    public String makeGetByNameQuery(String name) {
+        return "SELECT * FROM USERS WHERE USER_LOGIN = " + "'" + name + "'";
     }
 
 //    DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
@@ -77,7 +81,7 @@ public class DatabaseUserDao extends DatabaseDao<User> {
     }
 
     public String makeGetLastIDQuery() {
-        String query = "SELECT MAX(USER_ID) AS USER_ID FROM USERS";
+        String query = "SELECT MAX(USER_ID) AS ID FROM USERS";
         return query;
     }
 }
