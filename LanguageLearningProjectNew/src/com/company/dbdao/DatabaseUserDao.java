@@ -41,7 +41,7 @@ public class DatabaseUserDao extends DatabaseDao<User> {
     public String makeInsertQuery(User user) {
         String query = "INSERT INTO USERS ";
         query += "(USER_ID, USER_LOGIN, USER_PASSWORD, USER_EMAIL, USER_ROLE)";
-        query += "VALUES ";
+        query += " VALUES ";
         query += "(";
         query += user.getId() + ", ";
         query += "'" + user.getLogin() + "'" + ", ";
@@ -53,7 +53,7 @@ public class DatabaseUserDao extends DatabaseDao<User> {
     }
 
     public User getByLogin(String login) {
-        String query = "SELECT * FROM USERS WHERE USER_LOGIN = " + login;
+        String query = "SELECT * FROM USERS WHERE USER_LOGIN = " + "'" +login + "'";
         try {
             response = statement.executeQuery(query);
             if(response.next()) {
@@ -77,7 +77,7 @@ public class DatabaseUserDao extends DatabaseDao<User> {
     }
 
     public String makeGetLastIDQuery() {
-        String query = "SELECT MAX(USER_ID) FROM USERS";
+        String query = "SELECT MAX(USER_ID) AS USER_ID FROM USERS";
         return query;
     }
 }

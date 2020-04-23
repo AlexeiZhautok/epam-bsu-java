@@ -94,4 +94,33 @@ public class UserServiceDatabase {
         }
         return databaseUserDao.getByID(ID);
     }
+
+    public void updateByID(String inputID, String newLogin, String newPassword, String newEmail, String inputNewRole) {
+        long ID = 0;
+        UserRole newRole;
+        try {
+            newRole = checkRoleCorrectness(inputNewRole);
+        } catch (IncorrectRoleException e) {
+            log.warn("Введена неправильная роль");
+            return;
+        }
+        try {
+            ID = checkIDCorrectness(inputID);
+        } catch (IncorrectIdException e) {
+            log.warn("Введён неправильный ID");
+            return;
+        }
+        if(getByID(inputID) != null) {
+            if (checkFieldsEmptiness(newLogin, newPassword, newEmail)) {
+                databaseUserDao.updateByID(new User(ID, newLogin, newPassword, newEmail, newRole));
+                log.info("Пользователь успешно обновлён");
+            } else {
+                log.warn("Новый пользователь имеет некорректные данные");
+                return;
+            }
+        } else {
+            log.warn("Пользователя с введённым ID не существует");
+            return;
+        }
+    }
 }

@@ -3,16 +3,18 @@ package com.company.view;
 import com.company.model.User;
 import com.company.service.ServiceUtility;
 import com.company.service.UserService;
+import com.company.servicedb.UserServiceDatabase;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class UserView {
 
-    public void showInterface() {
+    public void showInterface(boolean db) {
         boolean userFlag = true;
         Scanner scanner = ViewUtility.scanner;
         UserService userService = ServiceUtility.userService;
+        UserServiceDatabase userServiceDatabase = new UserServiceDatabase();
 
         while(userFlag) {
             System.out.println("User options: ");
@@ -26,13 +28,23 @@ public class UserView {
             String option = scanner.nextLine();
             switch (option) {
                 case "1":
-                    List<User> users = userService.getAll();
+                    List<User> users;
+                    if(db) {
+                        users = userServiceDatabase.getAll();
+                    } else {
+                        users = userService.getAll();
+                    }
                     for(User iter : users) {
                         System.out.println(iter.toString());
                     }
                     break;
                 case "2":
-                    userService.deleteAll();
+
+                    if(db) {
+                        // Implement db!!!
+                    } else {
+                        userService.deleteAll();
+                    }
                     break;
                 case "3":
                     System.out.println("Enter new user's information");
@@ -44,12 +56,21 @@ public class UserView {
                     String email = scanner.nextLine();
                     System.out.println("Role: ");
                     String role = scanner.nextLine();
-                    userService.createUser(login, password, email, role);
+                    if(db) {
+                        userServiceDatabase.createUser(login, password, email, role);
+                    } else {
+                        userService.createUser(login, password, email, role);
+                    }
                     break;
                 case "4":
                     System.out.println("Enter ID: ");
                     String id = scanner.nextLine();
-                    User tempUser = userService.getByID(id);
+                    User tempUser;
+                    if(db) {
+                        tempUser = userServiceDatabase.getByID(id);
+                    } else {
+                        tempUser = userService.getByID(id);
+                    }
                     if(tempUser != null) {
                         System.out.println(tempUser.toString());
                     } else {
@@ -68,12 +89,20 @@ public class UserView {
                     email = scanner.nextLine();
                     System.out.println("Role: ");
                     role = scanner.nextLine();
-                    userService.updateByID(id, login, password, email, role);
+                    if(db) {
+                        userServiceDatabase.updateByID(id, login, password, email, role);
+                    } else {
+                        userService.updateByID(id, login, password, email, role);
+                    }
                     break;
                 case "6":
                     System.out.println("Enter needed user's ID: ");
                     id = scanner.nextLine();
-                    userService.deleteByID(id);
+                    if(db) {
+                        userServiceDatabase.deleteByID(id);
+                    } else {
+                        userService.deleteByID(id);
+                    }
                     break;
                 default:
                     userFlag = false;

@@ -5,6 +5,7 @@ import com.company.model.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DatabaseCourseDao extends DatabaseDao<Course> {
     {
@@ -55,5 +56,19 @@ public class DatabaseCourseDao extends DatabaseDao<Course> {
     public String makeGetLastIDQuery() {
         String query = "SELECT MAX(COURSE_ID) FROM COURSES";
         return query;
+    }
+
+    public void getUsers(Course course) {
+        String query = "SELECT USER_ID FROM COURSE_PARTICIPANTS WHERE COURSE_ID = " + course.getId();
+        try {
+            response = statement.executeQuery(query);
+            ArrayList<Long> users = new ArrayList<Long>();
+            while (response.next()) {
+                users.add(response.getLong("USER_ID"));
+            }
+            course.setUsers(users);
+        } catch (SQLException e) {
+            log.fatal(e);
+        }
     }
 }

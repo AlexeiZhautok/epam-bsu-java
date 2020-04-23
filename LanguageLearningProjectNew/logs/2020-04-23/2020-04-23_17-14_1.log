@@ -1,0 +1,89 @@
+2020-04-10 19:24:26 [main] INFO  com.company.dao.CourseDao - Курс успешно создан
+2020-04-10 19:33:10 [main] WARN  com.company.dao.UserDao - Введены некорректные данные
+2020-04-10 19:33:30 [main] WARN  com.company.dao.UserDao - Введена неправильная роль
+2020-04-10 19:33:57 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-10 19:34:14 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
+2020-04-10 19:38:40 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-10 19:38:52 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-10 19:39:03 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
+2020-04-10 19:43:00 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
+2020-04-15 15:27:14 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-15 15:27:31 [main] WARN  com.company.dao.UserDao - Введена неправильная роль
+2020-04-15 15:27:42 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-15 15:28:08 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-15 15:28:32 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
+2020-04-15 15:28:50 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
+2020-04-15 15:28:59 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
+2020-04-15 15:29:11 [main] WARN  com.company.dao.UserDao - Пользователя с введённым ID не существует
+2020-04-15 15:29:41 [main] INFO  com.company.dao.CourseDao - Курс успешно создан
+2020-04-15 15:29:52 [main] INFO  com.company.dao.CourseDao - Курс успешно создан
+2020-04-15 15:29:57 [main] INFO  com.company.dao.CourseDao - Курс успешно создан
+2020-04-15 15:30:53 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 15:31:00 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 15:31:08 [main] WARN  com.company.dao.CourseDao - Пользователь уже записан на курс
+2020-04-15 15:31:25 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 15:31:30 [main] WARN  com.company.dao.CourseDao - Пользователь уже записан на курс
+2020-04-15 15:31:36 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 15:31:43 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 15:31:46 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 15:31:56 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
+2020-04-15 15:37:29 [main] WARN  com.company.dao.CourseDao - Пользователя с введённым ID не существует - добавление в курс не произошло
+2020-04-15 15:37:34 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 15:37:54 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 15:38:34 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
+2020-04-15 15:40:13 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-15 15:40:25 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-15 15:40:40 [main] INFO  com.company.dao.CourseDao - Курс успешно создан
+2020-04-15 15:40:52 [main] WARN  com.company.dao.CourseDao - Курс с таким именем уже существует
+2020-04-15 15:40:57 [main] INFO  com.company.dao.CourseDao - Курс успешно создан
+2020-04-15 15:43:28 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 15:43:30 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 15:43:34 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 15:45:15 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
+2020-04-15 15:45:54 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-15 15:46:03 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-15 15:46:14 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 15:46:17 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 15:46:23 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 15:47:21 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
+2020-04-15 15:56:05 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-15 15:56:15 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 15:56:18 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 15:56:23 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 15:59:41 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
+2020-04-15 16:02:23 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-15 16:02:35 [main] INFO  com.company.dao.UserDao - Пользователь успешно создан
+2020-04-15 16:02:42 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 16:02:44 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 16:02:47 [main] INFO  com.company.dao.CourseDao - Пользователь успешно добавлен
+2020-04-15 16:03:03 [main] INFO  com.company.dao.UserDao - Пользователь успешно обновлён
+2020-04-15 16:03:13 [main] INFO  com.company.dao.UserDao - Пользователь успешно удалён
+2020-04-17 16:02:07 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: No suitable driver found for jdbc:oracle:thin:@localhost:1521:orcl
+2020-04-17 16:03:04 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: No suitable driver found for jdbc:oracle:@localhost:1521:orcl
+2020-04-17 16:13:15 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: No suitable driver found for jdbc:oracle:@localhost:1521:orcl
+2020-04-17 16:13:40 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: No suitable driver found for jdbc:oracle:thin:@localhost:1521:orcl
+2020-04-17 16:57:26 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLSyntaxErrorException: ORA-00903: неверно имя таблицы
+
+2020-04-17 17:10:13 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: Недопустимое имя столбца
+2020-04-17 17:10:13 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: Недопустимое имя столбца
+2020-04-17 17:25:15 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLSyntaxErrorException: ORA-01747: неверные спецификации для user.table.column, table.column или column
+
+2020-04-17 17:26:50 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLSyntaxErrorException: ORA-01747: неверные спецификации для user.table.column, table.column или column
+
+2020-04-17 17:28:21 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLSyntaxErrorException: ORA-01747: неверные спецификации для user.table.column, table.column или column
+
+2020-04-17 18:37:06 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: Не выполнен вызов ResultSet.next
+2020-04-17 18:39:23 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: Набор результатов после последней строки
+2020-04-17 18:39:51 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: Набор результатов после последней строки
+2020-04-23 17:09:30 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:11:34 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 17:11:48 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLSyntaxErrorException: ORA-00904: "NACHALAS": недопустимый идентификатор
+
+2020-04-23 17:11:48 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLException: Недопустимое имя столбца
+2020-04-23 17:11:48 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.USERS_UNIQUE)
+
+2020-04-23 17:11:48 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно создан
+2020-04-23 17:14:09 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+

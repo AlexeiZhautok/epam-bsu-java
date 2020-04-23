@@ -4,17 +4,19 @@ import com.company.model.Course;
 import com.company.service.CourseService;
 import com.company.service.ServiceUtility;
 import com.company.service.UserService;
+import com.company.servicedb.CourseServiceDatabase;
 
 import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Scanner;
 
 public class CourseView {
-    public void showInterface() {
+    public void showInterface(boolean db) {
         boolean courseFlag = true;
         Scanner scanner = ViewUtility.scanner;
         //UserService userService = ServiceUtility.userService;
         CourseService courseService = ServiceUtility.courseService;
+        CourseServiceDatabase courseServiceDatabase = new CourseServiceDatabase();
 
         while(courseFlag) {
             System.out.println("Course options: ");
@@ -32,13 +34,22 @@ public class CourseView {
 
             switch (option) {
                 case "1":
-                    List<Course> allCourses = courseService.getAll();
+                    List<Course> allCourses;
+                    if(db) {
+                        allCourses = courseServiceDatabase.getAll();
+                    } else {
+                        allCourses = courseService.getAll();
+                    }
                     for(Course courseIter : allCourses) {
                         System.out.println(courseIter.toStringFileFormat());
                     }
                     break;
                 case "2":
-                    courseService.deleteAll();
+                    if(db) {
+                        // Implement!!
+                    } else {
+                        courseService.deleteAll();
+                    }
                     break;
                 case "3":
                     System.out.println("Enter new course's information:");
@@ -51,7 +62,12 @@ public class CourseView {
                 case "4":
                     System.out.println("Enter ID: ");
                     String id = scanner.nextLine();
-                    Course tempCourse = courseService.getByID(id);
+                    Course tempCourse;
+                    if(db) {
+                        tempCourse = courseServiceDatabase.getByID(id);
+                    } else {
+                        tempCourse = courseService.getByID(id);
+                    }
                     if(tempCourse != null) {
                         System.out.println(tempCourse.toStringFileFormat());
                     } else {
