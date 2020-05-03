@@ -23,10 +23,6 @@ public abstract class DatabaseDao<E> {
     public DatabaseDao() {
         try {
             connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", USER, PASSWORD);
-        } catch (SQLException e) {
-            log.fatal(e);
-        } // Нужно ли здесь finally?
-        try {
             statement = connection.createStatement();
         } catch (SQLException e){
             log.fatal(e);

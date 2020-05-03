@@ -13,3 +13,32 @@
 
 2020-04-23 18:41:52 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно удалён
 2020-04-23 18:42:07 [main] WARN  com.company.dbdao.DatabaseDao - Пользователя с введённым ID не существует - добавление в курс не произошло
+2020-04-23 19:49:02 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 19:50:58 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 19:51:45 [main] WARN  com.company.dbdao.DatabaseDao - Пользователь с таким логином уже существует
+2020-04-23 19:54:11 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно обновлён
+2020-04-23 19:54:27 [main] WARN  com.company.dbdao.DatabaseDao - Пользователя с введённым ID не существует
+2020-04-23 19:54:38 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно удалён
+2020-04-23 19:54:45 [main] INFO  com.company.dbdao.DatabaseDao - Пользователя с введённым ID не существует
+2020-04-23 19:55:01 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно удалён
+2020-04-23 19:55:06 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно удалён
+2020-04-23 19:59:32 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 20:00:00 [main] WARN  com.company.dbdao.DatabaseDao - Курса с введённым ID не существует
+2020-04-23 20:00:23 [main] INFO  com.company.dbdao.DatabaseDao - Курс успешно удалён
+2020-04-23 20:00:33 [main] WARN  com.company.dbdao.DatabaseDao - Пользователя с введённым ID не существует - добавление в курс не произошло
+2020-04-23 20:00:44 [main] WARN  com.company.dbdao.DatabaseDao - Пользователя с введённым ID не существует - добавление в курс не произошло
+2020-04-23 20:00:50 [main] WARN  com.company.dbdao.DatabaseDao - Курса с введённым ID не существует
+2020-04-23 20:00:55 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно добавлен
+2020-04-23 20:01:08 [main] WARN  com.company.dbdao.DatabaseDao - Курса с введённым ID не существует
+2020-04-23 20:01:15 [main] WARN  com.company.dbdao.DatabaseDao - Курса с введённым ID не существует
+2020-04-23 20:01:20 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно добавлен
+2020-04-23 20:02:06 [main] WARN  com.company.dbdao.DatabaseDao - Пользователя с введённым ID не существует - добавление в курс не произошло
+2020-04-23 20:02:13 [main] WARN  com.company.dbdao.DatabaseDao - Пользователя с введённым ID не существует
+2020-04-23 20:02:18 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно удалён
+2020-04-23 20:10:59 [main] FATAL com.company.dbdao.DatabaseDao - java.sql.SQLIntegrityConstraintViolationException: ORA-00001: нарушено ограничение уникальности (JAVA_EPAM.PK_USERS)
+
+2020-04-23 20:11:14 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно добавлен
+2020-04-23 20:11:20 [main] INFO  com.company.dbdao.DatabaseDao - Пользователь успешно удалён

@@ -96,4 +96,19 @@ public class DatabaseCourseDao extends DatabaseDao<Course> {
             log.fatal(e);
         }
     }
+
+    public boolean checkUser(long courseID, long userID) {
+        String query = "SELECT * FROM COURSE_PARTICIPANTS WHERE COURSE_ID = " +
+                courseID + " AND USER_ID = " +
+                userID;
+        try {
+            response = statement.executeQuery(query);
+            if(response.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            log.fatal(e);
+        }
+        return false;
+    }
 }

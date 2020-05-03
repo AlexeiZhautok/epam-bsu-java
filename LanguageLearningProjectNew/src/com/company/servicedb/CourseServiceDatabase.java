@@ -49,7 +49,9 @@ public class CourseServiceDatabase {
             return null;
         }
         Course temp = databaseCourseDao.getByID(ID);
-        databaseCourseDao.getUsers(temp);
+        if(temp != null) {
+            databaseCourseDao.getUsers(temp);
+        }
         return temp;
     }
 
@@ -149,9 +151,13 @@ public class CourseServiceDatabase {
         if(userFound != null) {
             Course courseFound = databaseCourseDao.getByID(longCourseID);
             if(courseFound != null) {
-                databaseCourseDao.deleteUser(longCourseID, userFound.getId());
-                log.info("Пользователь успешно удалён");
-                databaseCourseDao.getUsers(courseFound);
+                if(databaseCourseDao.checkUser(longCourseID, longUserID)) {
+                    databaseCourseDao.deleteUser(longCourseID, userFound.getId());
+                    log.info("Пользователь успешно удалён");
+                    databaseCourseDao.getUsers(courseFound);
+                } else {
+                    log.warn("Пользователь не записан на курс");
+                }
             } else {
                 log.warn("Курса с введённым ID не существует");
                 return;
