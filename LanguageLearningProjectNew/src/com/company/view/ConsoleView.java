@@ -2,12 +2,19 @@ package com.company.view;
 
 import com.company.service.CourseService;
 import com.company.service.UserService;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import java.util.Scanner;
 
 public class ConsoleView {
 
     public void showInterface() {
+        Logger.getLogger("com.zaxxer.hikari.pool.PoolBase").setLevel(Level.INFO);
+        Logger.getLogger("com.zaxxer.hikari.pool.HikariPool").setLevel(Level.INFO);
+        Logger.getLogger("com.zaxxer.hikari.HikariDataSource").setLevel(Level.INFO);
+        Logger.getLogger("com.zaxxer.hikari.HikariConfig").setLevel(Level.INFO);
+        Logger.getLogger("com.zaxxer.hikari.util.DriverDataSource").setLevel(Level.INFO);
         Scanner scanner = new Scanner(System.in);
         UserService userService = new UserService();
         CourseService courseService = new CourseService();

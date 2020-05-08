@@ -2,11 +2,13 @@ import com.company.dbdao.DatabaseUserDao;
 import com.company.model.User;
 import com.company.model.UserRole;
 import com.company.view.ConsoleView;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 public class Main {
     public static void main(String[] args) {
-        DatabaseUserDao databaseUserDao = new DatabaseUserDao();
-        databaseUserDao.insert(new User(4, "NewUser", "12345", "d@d", UserRole.ADMIN));
+        BasicConfigurator.configure();
 
         ConsoleView view = new ConsoleView();
         view.showInterface();
