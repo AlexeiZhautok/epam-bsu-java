@@ -1,0 +1,13 @@
+package com.example.Epam_Lab5;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class EpamLab5Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(EpamLab5Application.class, args);
+	}
+
+}
