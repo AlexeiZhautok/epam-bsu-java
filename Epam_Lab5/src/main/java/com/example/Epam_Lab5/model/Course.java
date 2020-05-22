@@ -1,9 +1,6 @@
 package com.example.Epam_Lab5.model;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

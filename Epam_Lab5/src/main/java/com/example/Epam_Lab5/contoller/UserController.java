@@ -5,6 +5,8 @@ import com.example.Epam_Lab5.dao.UserDao;
 import com.example.Epam_Lab5.model.CourseParticipants;
 import com.example.Epam_Lab5.model.User;
 import com.example.Epam_Lab5.model.UserRole;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +31,8 @@ public class UserController {
     @Autowired
     CourseParticipantsDao courseParticipantsDao;
 
+    public Logger log = LogManager.getLogger();
+
     @GetMapping
     public String main(Map<String,Object> model){
        Iterable<User> users =  userDao.findAll();
@@ -45,13 +49,15 @@ public class UserController {
     )
     {
 
-        if(login!=null && password !=null && email !=null && role != null && (role.equals("ADMIN") || role.equals("TEACHER") || role.equals("STUDENT") || role.equals("GUEST"))) {
+        if(login != null && password != null && email != null && role != null && (role.equals("ADMIN") || role.equals("TEACHER") || role.equals("STUDENT") || role.equals("GUEST"))) {
             User user = new User();
             user.setLogin(login);
             user.setPassword(password);
             user.setEmail(email);
             user.setRole(UserRole.valueOf(role));
             userDao.save(user);
+        } else {
+            log.warn("Enter proper information (non-empty)");
         }
         Iterable<User> users = userDao.findAll();
         model.put("users", users);

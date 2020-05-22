@@ -6,7 +6,8 @@ import com.example.Epam_Lab5.dao.UserDao;
 import com.example.Epam_Lab5.model.Course;
 import com.example.Epam_Lab5.model.CourseParticipants;
 import com.example.Epam_Lab5.model.User;
-import com.example.Epam_Lab5.model.UserRole;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -28,6 +27,8 @@ public class CourseController {
     CourseDao courseDao;
     @Autowired
     CourseParticipantsDao courseParticipantsDao;
+
+    public Logger log = LogManager.getLogger();
 
     @GetMapping
     public String main(Map<String,Object> model){
@@ -61,7 +62,6 @@ public class CourseController {
                       Map<String, Object> model
     )
     {
-
         if(name!=null && organization !=null && !name.isEmpty() && !organization.isEmpty()) {
             Course check = courseDao.findByName(name);
             if(check == null) {

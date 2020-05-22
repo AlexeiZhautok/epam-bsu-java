@@ -1,8 +1,5 @@
 package com.example.Epam_Lab5.model;
 
-
-
-
 import javax.persistence.*;
 import java.util.Objects;
 
