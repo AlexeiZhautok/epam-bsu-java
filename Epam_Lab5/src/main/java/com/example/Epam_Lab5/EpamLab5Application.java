@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EpamLab5Application {
 
 	public static void main(String[] args) {
-		BasicConfigurator.configure();
 		SpringApplication.run(EpamLab5Application.class, args);
 	}
 

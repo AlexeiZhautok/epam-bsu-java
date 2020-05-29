@@ -1,55 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>LanguageLearningProjectNew</title>
-</head>
-<body>
+<#import "parts/main.ftlh" as m>
+<@m.page>
 <div>
-    <div>Add</div>
-    <form method="post" action="/user/add">
-        <label>
-            <input type="text" name = "login" placeholder="Логин"/>
-        </label>
-        <label>
-            <input type="text" name = "password" placeholder="Пароль"/>
-        </label>
-        <label>
-            <input type="text" name = "email" placeholder="Почта"/>
-        </label>
-        <label>
-            <input type="text" name = "role" placeholder="Роль"/>
-        </label>
-        <button type = "submit">Add</button>
-
-    </form>
     <div>Delete</div>
     <form method="get" action="/user/delete">
-        <label>
-            <input type="text" name = "login" placeholder="Логин"/>
-        </label>
-        <button type = "submit">Delete</button>
+        <input type="hidden" name="_csrf" value="${_csrf.token}" />
+        <div class="input-group mb-3">
+            <input type="text" name = "login"  class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Delete</button>
+            </div>
+        </div>
     </form>
     <div>Find</div>
     <form method="get" action="/user/find">
-        <label>
-            <input type="text" name = "login" placeholder="Логин"/>
-        </label>
-        <button type = "submit">find</button>
+        <input type="hidden" name="_csrf" value="${_csrf.token}" />
+        <div class="input-group mb-3">
+            <input type="text" name = "login"  class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon2">
+        </div>
     </form>
 
-    <a href="/">Exit</a>
 </div>
-<#list users as user>
-    <table>
+
+    <table  class="table">
+        <thead class="thead-dark">
         <tr>
-            <th> id - ${user.getId()},</th>
-            <th>${user.getLogin()}</th>
-            <th>${user.getPassword()}</th>
-            <th>${user.getEmail()}</th>
-            <th>${user.getRole()}</th>
+            <th>id</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Roles</th>
+            <th>Editor</th>
         </tr>
+        </thead>
+        <tbody>
+            <#list users as user>
+                <tr>
+                    <th>${user.getId()}</th>
+                    <th>${user.getUsername()}</th>
+                    <th>${user.getPassword()}</th>
+                    <th><div class="col-sm"> <#list user.roles as role>${role} <#sep>, </#list></div></th>
+                    <th><div class="col-sm"><a href = "/user/${user.getId()}">edit</a></div></th>
+                </tr>
+            </#list>
+        </tbody>
     </table>
-</#list>
-</body>
-</html>
+
+</@m.page>

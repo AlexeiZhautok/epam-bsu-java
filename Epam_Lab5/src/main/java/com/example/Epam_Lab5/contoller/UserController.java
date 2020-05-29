@@ -1,24 +1,16 @@
 package com.example.Epam_Lab5.contoller;
 
-import com.example.Epam_Lab5.dao.CourseParticipantsDao;
 import com.example.Epam_Lab5.dao.UserDao;
-import com.example.Epam_Lab5.model.CourseParticipants;
+import com.example.Epam_Lab5.model.Role;
 import com.example.Epam_Lab5.model.User;
-import com.example.Epam_Lab5.model.UserRole;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.example.Epam_Lab5.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 @Controller
@@ -26,58 +18,20 @@ import java.util.Map;
 public class UserController {
 
     @Autowired
-    UserDao userDao;
-
-    @Autowired
-    CourseParticipantsDao courseParticipantsDao;
-
-    public Logger log = LogManager.getLogger();
+    UserService userService;
 
     @GetMapping
     public String main(Map<String,Object> model){
-       Iterable<User> users =  userDao.findAll();
+       Iterable<User> users =  userService.findAll();
        model.put("users", users);
        return "user";
-    }
-
-    @PostMapping("/add")
-    public String add(@RequestParam String login,
-                      @RequestParam String password,
-                      @RequestParam String email,
-                      @RequestParam String role,
-                      Map<String, Object> model
-    )
-    {
-
-        if(login != null && password != null && email != null && role != null && (role.equals("ADMIN") || role.equals("TEACHER") || role.equals("STUDENT") || role.equals("GUEST"))) {
-            User user = new User();
-            user.setLogin(login);
-            user.setPassword(password);
-            user.setEmail(email);
-            user.setRole(UserRole.valueOf(role));
-            userDao.save(user);
-        } else {
-            log.warn("Enter proper information (non-empty)");
-        }
-        Iterable<User> users = userDao.findAll();
-        model.put("users", users);
-        return "user";
     }
 
     @GetMapping("/delete")
     public String delete(@RequestParam(required = false, defaultValue ="") String login,
                          Model model){
-        if(login != null && !login.isEmpty()){
-            User user = userDao.findByLogin(login);
-            if(user != null) {
-                userDao.delete(user);
-                List<CourseParticipants> list = courseParticipantsDao.findByUserId(user.getId());
-                for(var i : list) {
-                    courseParticipantsDao.delete(i);
-                }
-            }
-        }
-        Iterable<User> users = userDao.findAll();
+        userService.deleteUserByUserName(login);
+        Iterable<User> users = userService.findAll();
         model.addAttribute("users", users);
         model.addAttribute("login", login);
         return "user";
@@ -86,20 +40,35 @@ public class UserController {
     @GetMapping("/find")
     public String find(@RequestParam(required = false, defaultValue ="") String login,
                        Model model){
-        if(login != null && !login.isEmpty()){
-            User user = userDao.findByLogin(login);
-            List<User> userAsList = new ArrayList<>();
-            if(user != null) {
-                userAsList.add(user);
-            }
-            model.addAttribute("users", userAsList);
-        }else{
-            Iterable<User> users = userDao.findAll();
-            model.addAttribute("users", users);
-        }
+        model.addAttribute("users", userService.find(login));
         model.addAttribute("login", login);
         return "user";
     }
 
+    @GetMapping("{user}")
+    public String userEditForm(@PathVariable User user, Model model){
+        model.addAttribute("user", user);
+        model.addAttribute("roles", Role.values());
+        return "editor";
+    }
+
+    @PostMapping
+    public String userSave(
+            @RequestParam String username,
+            @RequestParam Map<String, String> form,
+            @RequestParam("userId") User user
+    ){
+        user.setUsername(username);
+
+        Set<String> roles = Arrays.stream(Role.values()).map(Role::name).collect(Collectors.toSet());
+        user.getRoles().clear();
+        for (String key : form.keySet()){
+            if(roles.contains(key)){
+                user.getRoles().add(Role.valueOf(key));
+            }
+        }
+        userService.save(user);
+        return "redirect:/user";
+    }
 
 }

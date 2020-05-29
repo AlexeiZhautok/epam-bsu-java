@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Course {
@@ -13,26 +14,31 @@ public class Course {
     private String name;
     private String organization;
 
-    @Transient
-    private List<Long> users = new ArrayList<>();
+    @ManyToMany
+    @JoinTable(
+            name = "UsersOnCourse",
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id")
+    )
+    private List<User> userSet;
+
+    public List<User> getUserSet() {
+        return userSet;
+    }
+
+    public void setUserSet(List<User> userSet) {
+        this.userSet = userSet;
+    }
+
+    public void addUser(User user){
+        userSet.add(user);
+    }
+
+    public void deleteUser(User user){
+       userSet.remove(user);
+    }
 
     public Course() {
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Course course = (Course) o;
-        return id == course.id &&
-                Objects.equals(name, course.name) &&
-                Objects.equals(organization, course.organization) &&
-                Objects.equals(users, course.users);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, organization, users);
     }
 
     public long getId() {
@@ -59,11 +65,5 @@ public class Course {
         this.organization = organization;
     }
 
-    public List<Long> getUsers() {
-        return users;
-    }
 
-    public void setUsers(List<Long> users) {
-        this.users = users;
-    }
 }

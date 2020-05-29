@@ -1,13 +1,9 @@
 package com.example.Epam_Lab5.contoller;
 
 import com.example.Epam_Lab5.dao.CourseDao;
-import com.example.Epam_Lab5.dao.CourseParticipantsDao;
-import com.example.Epam_Lab5.dao.UserDao;
 import com.example.Epam_Lab5.model.Course;
-import com.example.Epam_Lab5.model.CourseParticipants;
-import com.example.Epam_Lab5.model.User;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.example.Epam_Lab5.service.CourseService;
+import com.example.Epam_Lab5.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,19 +18,13 @@ import java.util.Map;
 @RequestMapping("/course")
 public class CourseController {
     @Autowired
-    UserDao userDao;
+    UserService userService;
     @Autowired
-    CourseDao courseDao;
-    @Autowired
-    CourseParticipantsDao courseParticipantsDao;
-
-    public Logger log = LogManager.getLogger();
+    private CourseService courseService;
 
     @GetMapping
     public String main(Map<String,Object> model){
-        Iterable<Course> courses =  courseDao.findAll();
-        Iterable<CourseParticipants> courseParticipants = courseParticipantsDao.findAll();
-        model.put("courseParticipants", courseParticipants);
+        Iterable<Course> courses =  courseService.findAll();
         model.put("courses",  courses);
 
         return "course";
@@ -43,16 +33,9 @@ public class CourseController {
     @GetMapping("/delete")
     public String delete(@RequestParam(required = false, defaultValue = "") String name,
                          Model model) {
-        if(name != null && !name.isEmpty()) {
-            Course course = courseDao.findByName(name);
-            if(course != null) {
-                courseDao.delete(course);
-            }
-        }
-        Iterable<Course> courses = courseDao.findAll();
-        Iterable<CourseParticipants> courseParticipants = courseParticipantsDao.findAll();
+        courseService.delete(name);
+        Iterable<Course> courses = courseService.findAll();
         model.addAttribute("courses", courses);
-        model.addAttribute("courseParticipants", courseParticipants);
         return "course";
     }
 
@@ -62,19 +45,10 @@ public class CourseController {
                       Map<String, Object> model
     )
     {
-        if(name!=null && organization !=null && !name.isEmpty() && !organization.isEmpty()) {
-            Course check = courseDao.findByName(name);
-            if(check == null) {
-                Course course = new Course();
-                course.setName(name);
-                course.setOrganization(organization);
-                courseDao.save(course);
-            }
-        }
-        Iterable<Course> courses = courseDao.findAll();
-        Iterable<CourseParticipants> courseParticipants = courseParticipantsDao.findAll();
+
+        model.put("message", courseService.add(name,organization));
+        Iterable<Course> courses = courseService.findAll();
         model.put("courses", courses);
-        model.put("courseParticipants", courseParticipants);
 
         return "course";
     }
@@ -84,43 +58,35 @@ public class CourseController {
                                   @RequestParam String login,
                                   Map<String, Object> model
     ){
-        Course courseToUpdate = courseDao.findByName(name);
-        if(courseToUpdate != null) {
-            if(login != null && !login.isEmpty() && name != null && !name.isEmpty()) {
-                User user = userDao.findByLogin(login);
-                if(user != null && courseParticipantsDao.findByUserIdAndAndCourseId(user.getId(), courseToUpdate.getId()) == null) {
-                    CourseParticipants courseParticipant = new CourseParticipants();
-                    courseParticipant.setCourseId(courseToUpdate.getId());
-                    courseParticipant.setUserId(user.getId());
-                    courseParticipantsDao.save(courseParticipant);
-                }
-            }
-        }
-
-        Iterable <CourseParticipants> courseParticipants =  courseParticipantsDao.findAll();
-        Iterable<Course> courses = courseDao.findAll();
+        model.put("message", courseService.addUserOnCourse(name,login) );
+        Iterable<Course> courses = courseService.findAll();
         model.put("courses",courses);
-        model.put("courseParticipants", courseParticipants);
         return "course";
     }
 
     @GetMapping("/removeUserFromCourse")
-    public String removeUserFromACourse(@RequestParam(required = false, defaultValue = "") String name,
+   public String removeUserFromACourse(@RequestParam(required = false, defaultValue = "") String name,
                                         @RequestParam(required = false) Long id,
                                         Map<String, Object> model) {
-        if(name != null && !name.isEmpty() && id != null) {
-            if(userDao.findUserById(id) != null && courseDao.findByName(name) != null) {
-                Course tempCourse = courseDao.findByName(name);
-                CourseParticipants temp = courseParticipantsDao.findByUserIdAndAndCourseId(id, tempCourse.getId());
-                if(temp != null) {
-                    courseParticipantsDao.delete(temp);
-                }
-            }
-        }
-        Iterable <CourseParticipants> courseParticipants =  courseParticipantsDao.findAll();
-        Iterable<Course> courses = courseDao.findAll();
+        model.put("message", courseService.removeUserFromACourse(name,id));
+        Iterable<Course> courses = courseService.findAll();
         model.put("courses",courses);
-        model.put("courseParticipants", courseParticipants);
+        return "course";
+    }
+
+    @GetMapping("/subscribe")
+    public String subscribeOnCourse(@RequestParam Long courseId, Map<String, Object> model){
+        model.put("message",courseService.subscribeOnCourse(courseId));
+        Iterable<Course> courses = courseService.findAll();
+        model.put("courses",courses);
+        return "course";
+    }
+
+    @GetMapping("/unsubscribe")
+    public String unsubscribeOfCourse(@RequestParam Long courseId, Map<String, Object> model){
+        model.put("message", courseService.unsubscribeOfCourse(courseId));
+        Iterable<Course> courses = courseService.findAll();
+        model.put("courses",courses);
         return "course";
     }
 }
